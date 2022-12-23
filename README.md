@@ -48,14 +48,138 @@ pick me
  -->
 
 # 洗い出した要件
-要件定義をまとめたスプレッドシートのリンクを記載。
+https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7PVc/edit#gid=982722306
 
-#
-実装した機能についての画像やGIFおよびその説明
+# 実装した機能についての画像やGIFおよびその説明
 
 # 実装予定の機能
 
 # データベース設計
+
+## users テーブル
+
+| Column             | Type    | Options                    |
+| ------------------ | ------- | -------------------------- |
+| email              | string  | null: false, unique: true  |
+| encrypted_password | string  | null: false                |
+| nickname           | string  | null: false                |
+| how_old_id         | integer | null: false                |
+| sex_id             | integer | null: false                |
+| introduction       | text    | null: false, default: ""   |
+| status_id          | integer | null: false, default: 1000 |
+
+### Association
+ - has_many :templates
+ - has_many :memos
+ - has_many :relationships
+ - has_many :himas
+ - has_many :hit_ons
+ - has_many :room_users
+ - has_many :rooms, through: :room_users
+ - has_many :messages
+
+## templates テーブル
+
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| user       | references | null: false, foreign_key: true |
+| priority   | integer    | null: false                    |
+| how_old_id | integer    | null: false                    |
+| sex_id     | integer    | null: false                    |
+| line       | text       | null: false                    |
+
+### Association
+ - belongs_to :user
+
+## memos テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| subject | references | null: false, foreign_key: true |
+| object  | references | null: false, foreign_key: true |
+| memo    | text       | null: false, default: ""       |
+
+### Association
+ - belongs_to :user
+
+## relationships テーブル
+
+| Column          | Type       | Options                        |
+| subject         | references | null: false, foreign_key: true |
+| object          | references | null: false, foreign_key: true |
+| relationship_id | integer    | null: false, default: 1000     |
+
+### Association
+ - belongs_to :user
+
+## himas テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| title         | string     | null: false                    |
+| location      | string     |                                |
+| text          | text       | null: false                    |
+| open_range_id | integer    | null: false                    |
+
+### Association
+ - belongs_to :user
+ - has_many :purposes
+ - has_many :hit_ons
+
+## purposes テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| hima          | references | null: false, foreign_key: true |
+| purpose_id    | integer    | null: false                    |
+
+### Association
+ - belongs_to :hima
+
+## hit_ons テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| hima          | references | null: false, foreign_key: true |
+| line          | text       | null: false                    |
+add_index :hit_ons, [:user_id, :hima_id], unique: true
+
+### Association
+ - belongs_to :user
+ - belongs_to :hima
+
+## rooms テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+
+### Association
+ - has_many :room_users
+ - has_many :users, through: :room_users
+
+## room_users テーブル
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| room          | references | null: false, foreign_key: true |
+| user          | references | null: false, foreign_key: true |
+
+### Association
+ - belongs_to :room
+ - belongs_to :user
+
+## messages テーブル
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| room          | references | null: false, foreign_key: true |
+| user          | references | null: false, foreign_key: true |
+| message       | text       | null: false                    |
+
+### Association
+ - belongs_to :room
+ - belongs_to :user
+
 
 # 画面遷移図
 
