@@ -1,0 +1,2 @@
+class HimasController < ApplicationController
+end
