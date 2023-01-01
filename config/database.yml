@@ -22,4 +22,3 @@ production:
   <<: *default
   adapter: postgresql
   url: <%= ENV['DATABASE_URL'] %>
-  # ↑環境変数未設定
