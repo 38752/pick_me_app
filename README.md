@@ -65,7 +65,7 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
 | nickname           | string  | null: false                |
 | how_old_id         | integer | null: false                |
 | sex_id             | integer | null: false                |
-| introduction       | text    | null: false, default: ""   |
+| introduction       | text    |                            |
 | status_id          | integer | null: false, default: 1000 |
 
 ### Association
