@@ -1,0 +1,47 @@
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'registration-main', local: true) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nickname %><br />
+    <div class="caution">*この情報は他ユーザーに公開されます</div>
+    <%= f.text_field :nickname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :how_old_id %><br />
+    <div class="caution">*この情報は他ユーザーに公開されます</div>
+    <%= f.collection_select(:how_old_id, HowOld.all, :id, :registration, {}, {class:"select-box"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sex_id %><br />
+    <div class="caution">*この情報は他ユーザーに公開されます</div>
+    <%= f.collection_select(:sex_id, Sex.all, :id, :registration, {}, {class:"select-box"}) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

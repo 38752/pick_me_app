@@ -12,26 +12,25 @@
   <body>
     <header class="header">
       <div class="logo"><a href='/'>pick me</a></div>
-      <%# if user_signed_in? %>
+      <% if user_signed_in? %>
         <div class="user_nav">
           <ul class="user__info">
             <li>
               <%#= link_to "マイページ", "/users/#{current_user.id}" %>
-              <%= link_to "ニックネームさん", '#' %>
-              <%#= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-              <%= link_to "ログアウト", '#' %>
+              <%= link_to current_user.nickname, '#' %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             </li>
           </ul>
         </div>
-      <%# else %>
-        <%# <div class="not_user_nav">
+      <% else %>
+        <div class="not_user_nav">
           <ul class="user__info">
             <li>
-              <%#= link_to "ログイン", new_user_session_path, class: "post" %>
-              <%#= link_to "新規登録", new_user_registration_path, class: "post" %>
-          <%#   </li>
+              <%= link_to "ログイン", new_user_session_path, class: "post" %>
+              <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+            </li>
         </div>
-      <%# end %>
+      <% end %>
     </header>
     <div class:="yield">
       <%= yield %>
