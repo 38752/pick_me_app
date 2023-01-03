@@ -31,7 +31,7 @@ def create_active_hash(start_with, value_name)
 end
 
 # # idの始めの値
-# start_with = 1
+# start_with = 10
 # # 要素の名前
 # value_name = "name"
 
