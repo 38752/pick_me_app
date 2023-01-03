@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'registration-main', local: true) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -19,6 +19,24 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nickname %><br />
+    <div class="caution">*この情報は他ユーザーに公開されます</div>
+    <%= f.password_field :nickname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :how_old_id %><br />
+    <div class="caution">*この情報は他ユーザーに公開されます</div>
+    <%= f.collection_select(:how_old_id, HowOld.all, :id, :registration, {}, {class:"select-box"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sex_id %><br />
+    <div class="caution">*この情報は他ユーザーに公開されます</div>
+    <%= f.collection_select(:sex_id, Sex.all, :id, :registration, {}, {class:"select-box"}) %>
   </div>
 
   <div class="actions">

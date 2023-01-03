@@ -31,3 +31,16 @@ a {
   font-size: 40px;
   color: black;
 }
+
+/* ▼/users/sign_up */
+.new_user {
+  padding-top: 50px;
+}
+.caution {
+  font-size: 12px;
+}
+.select-box {
+  margin: 10px 20px;
+}
+
+/* ▲/users/sign_up */

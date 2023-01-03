@@ -9,4 +9,5 @@ class User < ApplicationRecord
   belongs_to :how_old
   belongs_to :status
 
+  validates :nickname, presence: true
 end
