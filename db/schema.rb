@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_02_124349) do
+ActiveRecord::Schema.define(version: 2023_01_03_080110) do
+
+  create_table "hima_purposes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "hima_id", null: false
+    t.integer "purpose_id"
+    t.integer "flag"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hima_id"], name: "index_hima_purposes_on_hima_id"
+  end
+
+  create_table "himas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title", null: false
+    t.string "location"
+    t.text "text", null: false
+    t.integer "open_range_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_himas_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +49,6 @@ ActiveRecord::Schema.define(version: 2023_01_02_124349) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "hima_purposes", "himas"
+  add_foreign_key "himas", "users"
 end

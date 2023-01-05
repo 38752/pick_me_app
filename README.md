@@ -124,10 +124,10 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
 
 ### Association
  - belongs_to :user
- - has_many :purposes
+ - has_many :hima_purposes
  - has_many :hit_ons
 
-## purposes テーブル
+## hima_purposes テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
@@ -136,6 +136,7 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
 
 ### Association
  - belongs_to :hima
+ - belongs_to :purpose
 
 ## hit_ons テーブル
 
