@@ -1,3 +1,7 @@
+.pillow {
+  height: 90px;
+}
+
 a {
   color: black;
   text-decoration: none;
@@ -26,8 +30,6 @@ a {
 }
 
 .test {
-  height: 1000px;
-  margin-top: 90px;
   font-size: 40px;
   color: black;
 }

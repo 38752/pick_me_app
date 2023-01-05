@@ -5,6 +5,4 @@ class Hima < ApplicationRecord
   has_many :hima_purposes
   # has_many :hit_ons
 
-  validates :title, :text, presence: true
-
 end

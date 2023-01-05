@@ -1,0 +1,43 @@
+<div class="test">himas#new</div>
+<%= form_with model: @hima_form, url: himas_path, local: true do |f| %>
+  <%= render 'error_messages', model: @hima_form %>
+  <div class="field">
+   <%= f.label :title, "タイトル（必須）" %>
+   <div>
+    <%= f.text_field :title %>
+   </div>
+  </div>
+  <div class="field">
+   <%= f.label :location, "ロケーション（任意）" %>
+   <div>
+    <%= f.text_field :location %>
+   </div>
+  </div>
+  <div class="field">
+    <%= f.label :text, "本文（必須）" %>
+    <div>
+      <%= f.text_area :text %>
+    </div>
+  </div>
+
+  <h2>タグ</h2>
+    <% @purposes.each_with_index do |purpose, i| %>
+      <div class="field">
+        <%= f.check_box :"purpose_#{purpose.id}" %>
+        <%= f.label :"purpose_#{purpose.id}", "#{purpose.name}" %>
+        <br>
+      </div>
+    <% end %>
+    <%#  %>
+  <h2>公開範囲</h2>
+  <div class="field">
+    <%= f.label :open_range_id, "公開範囲" %>
+    <div>
+      <%= f.collection_select :open_range_id, OpenRange.all, :id, :name %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "投稿する" %>
+  </div>
+<% end %>
