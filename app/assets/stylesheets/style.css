@@ -34,6 +34,22 @@ a {
   color: black;
 }
 
+
+/* ▼/himas/index */
+.hima-unit {
+  background-color: antiquewhite;
+}
+.icon-image {
+  height: 50px;
+  width: 50px;
+  /* 画像の表示形式を指定するプロパティ */
+  object-fit: cover;
+
+  border: 1px solid black;
+  border-radius: 50%;
+}
+/* ▲/himas/index */
+
 /* ▼/users/sign_up */
 .new_user {
   padding-top: 50px;
