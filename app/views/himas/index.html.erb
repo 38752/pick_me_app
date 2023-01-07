@@ -1,26 +1,33 @@
 <div class="test">himas#index</div>
 <% @himas.each do |hima| %>
-  <h4>
-    <%= "id:#{hima.id}/タイトル:#{hima.title}" %>
-  </h4>
-  <div>
-    <%= hima.user.nickname %>
-  </div>
-  <div>
-    <% if hima.location != "" %>
-      <%= hima.location %>
-    <% else %>
-    <em><%= "場所指定なし" %></em>
+  <div class="hima-unit">
+    <h4>
+      <%= "id:#{hima.id}/タイトル:#{hima.title}" %>
+    </h4>
+    <div>
+      <% if hima.id % 2 == 0 %>
+        <span><%= image_tag 'Killua_icon.jpeg', class: "icon-image" %></span>
+      <% else %>
+        <span><%= image_tag 'new_user_icon.png', class: "icon-image" %></span>
+      <% end %>
+      <%= hima.user.nickname %>
+    </div>
+    <div>
+      <% if hima.location != "" %>
+        <%= hima.location %>
+      <% else %>
+      <em><%= "場所指定なし" %></em>
+      <% end %>
+    </div>
+    <div>
+      <%= hima.text %>
+    </div>
+    <ul><h5>タグ</h5>
+    <% hima.hima_purposes.each do |purpose| %>
+      <% if purpose.flag == 1 %>
+        <li><%= purpose.purpose.name %></li>
+      <% end %>
     <% end %>
+    </ul>
   </div>
-  <div>
-    <%= hima.text %>
-  </div>
-  <ul><h5>タグ</h5>
-  <% hima.hima_purposes.each do |purpose| %>
-    <% if purpose.flag == 1 %>
-      <li><%= purpose.purpose.name %></li>
-    <% end %>
-  <% end %>
-  </ul>
 <% end %>
