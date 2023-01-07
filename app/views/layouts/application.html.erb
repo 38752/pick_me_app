@@ -16,8 +16,7 @@
         <div class="user_nav">
           <ul class="user__info">
             <li>
-              <%#= link_to "マイページ", "/users/#{current_user.id}" %>
-              <%= link_to current_user.nickname, '#' %>
+              <%= link_to "#{current_user.nickname}さん", user_path(current_user) %>
               <%= link_to "新規投稿", new_hima_path %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             </li>
