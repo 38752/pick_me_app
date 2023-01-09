@@ -73,9 +73,14 @@ h4 {
   height: 300px;
   width: 90%;
   margin: 20px;
+  padding: 5px;
   overflow-x: scroll;
   background-color: antiquewhite;
   display: flex;
+}
+
+.profile-image {
+  margin: 5px;
 }
 
 .image-container {
@@ -104,6 +109,14 @@ h4 {
 }
 
 /* ▲/users/:id */
+
+
+/* ▼/users/:id/edit */
+.image-file {
+  height: 30px;
+  width: 275px;
+}
+/* ▲/users/:id/edit */
 
 /* ▼/users/sign_up */
 .new_user {
