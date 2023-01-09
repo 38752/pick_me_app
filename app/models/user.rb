@@ -8,6 +8,9 @@ class User < ApplicationRecord
   belongs_to :sex
   belongs_to :how_old
   belongs_to :status
+  has_many_attached :images
+
+  has_many :himas
 
   validates :nickname, presence: true
 end

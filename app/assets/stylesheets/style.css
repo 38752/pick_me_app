@@ -7,6 +7,10 @@ a {
   text-decoration: none;
 }
 
+h4 {
+  display: inline;
+}
+
 .header {
   padding: 10px 20px;
   border-bottom: 1px solid #D8D8D8;
@@ -34,7 +38,6 @@ a {
   color: black;
 }
 
-
 /* ▼/himas/index */
 .hima-unit {
   background-color: antiquewhite;
@@ -49,6 +52,57 @@ a {
   border-radius: 50%;
 }
 /* ▲/himas/index */
+
+/* ▼/users/:id */
+.edit-button {
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.upper-profile {
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  padding: 0 20px 50px;
+}
+
+.profile-summary {
+  width: calc(100% - 500px);
+}
+
+.images-container {
+  height: 300px;
+  width: 90%;
+  margin: 20px;
+  overflow-x: scroll;
+  background-color: antiquewhite;
+  display: flex;
+}
+
+.image-container {
+  height: 280px;
+  width: 280px;
+  background-color: beige;
+  margin: 10px;
+  flex-shrink: 0;
+}
+
+.current-hima-container {
+  width: 500px;
+  overflow-y: scroll;
+}
+
+.memo-profile {
+  padding: 0 20px 50px;
+  word-break: break-all;
+}
+
+.lower-profile {
+  padding: 0 20px 50px;
+  word-break: break-all;
+}
+
+/* ▲/users/:id */
 
 /* ▼/users/sign_up */
 .new_user {
