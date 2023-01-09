@@ -11,6 +11,11 @@ class UsersController < ApplicationController
 
   def update
     set_user
+    if @user.update(profile_params)
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
   end
 
   private
@@ -24,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def profile_params
-    params.require(:user).permit(:nickname, :how_old_id, :sex_id, :introduction, {images: []}).merge(user_id: current_user.id)
+    params.require(:user).permit(:nickname, :how_old_id, :sex_id, :introduction, {images: []})
   end
 
 end
