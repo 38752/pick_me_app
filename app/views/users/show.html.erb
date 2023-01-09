@@ -1,2 +1,37 @@
 <div class="test">users#show</div>
-<h4><%= "id:#{@user.id} nickname:#{@user.nickname}さんのプロフィール" %></h4>
+<div class="upper-profile">
+  <div class="profile-summary">
+    <h4><%= "id:#{@user.id} nickname:#{@user.nickname}さんのプロフィール" %></h4>
+    <% if @user == current_user %><%= link_to "編集", '#', class: "edit-button" %><% end %>
+    <div class="images-container">
+      <div class="image-container">画像</div>
+      <div class="image-container">画像</div>
+      <div class="image-container">画像</div>
+      <div class="image-container">画像</div>
+      <div class="image-container">画像</div>
+      <div class="image-container">画像</div>
+    </div>
+    <div><%= "年齢：#{@user.how_old.profile}" %></div>
+    <div><%= "性別：#{@user.sex.profile}" %></div>
+  </div>
+  <div class="current-hima-container">
+    <h4><%= "#{@user.nickname}さんの最近のhima" %></h4>
+    <% @user.himas.each do |hima| %>
+      <%= render partial: 'himas/himas', locals: { hima: hima } %>
+    <% end %>
+  </div>
+</div>
+<div class="memo-profile">
+  <h4>メモ※あなたにのみ表示されます</h4>
+  <%= link_to "編集", '#', class: "edit-button" %>
+  <div class="memo">
+    <%#= "ここにメモ" %>
+  </div>
+</div>
+<div class="lower-profile">
+  <h4>自己紹介</h4>
+  <% if @user == current_user %><%= link_to "編集", '#', class: "edit-button" %><% end %>
+  <div class="introduction">
+    <%= @user.introduction %>
+  </div>
+</div>
