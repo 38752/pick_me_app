@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :user_owner?, only: [:edit, :update]
   def show
     set_user
+    @memo = Memo.find_by(subject_id: current_user.id, object_id: params[:id].to_i)
   end
 
   def edit
