@@ -13,4 +13,5 @@ class User < ApplicationRecord
   has_many :himas
 
   validates :nickname, presence: true
+  validates :images, blob: { content_type: :image }
 end
