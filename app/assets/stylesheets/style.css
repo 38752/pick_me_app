@@ -60,7 +60,6 @@ h4 {
 }
 
 .upper-profile {
-  height: 600px;
   display: flex;
   flex-direction: row;
   padding: 0 20px 50px;
@@ -74,9 +73,14 @@ h4 {
   height: 300px;
   width: 90%;
   margin: 20px;
+  padding: 5px;
   overflow-x: scroll;
   background-color: antiquewhite;
   display: flex;
+}
+
+.profile-image {
+  margin: 5px;
 }
 
 .image-container {
@@ -87,9 +91,11 @@ h4 {
   flex-shrink: 0;
 }
 
-.current-hima-container {
+.current-himas-container {
   width: 500px;
+  height: 400px;
   overflow-y: scroll;
+  padding: 0 10px;
 }
 
 .memo-profile {
@@ -103,6 +109,18 @@ h4 {
 }
 
 /* ▲/users/:id */
+
+
+/* ▼/users/:id/edit */
+.image-file {
+  height: 30px;
+  width: 275px;
+}
+
+.preview-image {
+  max-height: 240px;
+}
+/* ▲/users/:id/edit */
 
 /* ▼/users/sign_up */
 .new_user {

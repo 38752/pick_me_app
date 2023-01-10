@@ -20,6 +20,9 @@ class HimasController < ApplicationController
     end
   end
 
+  def test
+  end
+
   private
 
   def hima_form_params

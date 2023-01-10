@@ -2,23 +2,29 @@
 <div class="upper-profile">
   <div class="profile-summary">
     <h4><%= "id:#{@user.id} nickname:#{@user.nickname}さんのプロフィール" %></h4>
-    <% if @user == current_user %><%= link_to "編集", '#', class: "edit-button" %><% end %>
+    <% if @user == current_user %><%= link_to "編集", edit_user_path, class: "edit-button" %><% end %>
     <div class="images-container">
-      <div class="image-container">画像</div>
-      <div class="image-container">画像</div>
-      <div class="image-container">画像</div>
-      <div class="image-container">画像</div>
-      <div class="image-container">画像</div>
-      <div class="image-container">画像</div>
+      <% if @user.images.attached? %>
+      <% @user.images.each do |image| %>
+        <%= image_tag(image, class: "profile-image") %>
+      <% end %>
+      <% else %>
+        <%= image_tag('Killua_icon.jpeg', class: "profile-image") %>
+        <%= image_tag('Killua_icon.jpeg', class: "profile-image") %>
+        <%= image_tag('Killua_icon.jpeg', class: "profile-image") %>
+      <% end %>
     </div>
     <div><%= "年齢：#{@user.how_old.profile}" %></div>
     <div><%= "性別：#{@user.sex.profile}" %></div>
   </div>
-  <div class="current-hima-container">
+  <div>
     <h4><%= "#{@user.nickname}さんの最近のhima" %></h4>
-    <% @user.himas.each do |hima| %>
-      <%= render partial: 'himas/himas', locals: { hima: hima } %>
-    <% end %>
+    <% if @user == current_user %><%= link_to "新規投稿", new_hima_path, class: "edit-button" %><% end %>
+    <div class="current-himas-container">
+      <% @user.himas.each do |hima| %>
+        <%= render partial: 'himas/himas', locals: { hima: hima } %>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="memo-profile">
@@ -30,7 +36,7 @@
 </div>
 <div class="lower-profile">
   <h4>自己紹介</h4>
-  <% if @user == current_user %><%= link_to "編集", '#', class: "edit-button" %><% end %>
+  <% if @user == current_user %><%= link_to "編集", edit_user_path, class: "edit-button" %><% end %>
   <div class="introduction">
     <%= @user.introduction %>
   </div>

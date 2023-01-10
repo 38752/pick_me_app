@@ -1,0 +1,36 @@
+<div class="test">users#edit</div>
+<%= form_with(model: @user, class: 'registration-main', id: 'edit-profile', local: true) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @user %>
+
+  <% 5.times do |i| %>
+  <div class="field">
+    <%= f.label :images, "画像#{i + 1}" %>
+    <%= f.file_field :images, name: 'user[images][]', accept: "image/*", class: "image-file", id: "user-image_#{i + 1}" %>
+    <%= tag.div(class: "preview-image-container", id: "preview_#{i + 1}") %>
+  </div>
+
+  <% end %>
+  <div class="field">
+    <%= f.label :nickname, "ニックネーム" %><br />
+    <%= f.text_field :nickname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :how_old_id %><br />
+    <%= f.collection_select(:how_old_id, HowOld.all, :id, :registration, {}, {class:"select-box"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sex_id %><br />
+    <%= f.collection_select(:sex_id, Sex.all, :id, :registration, {}, {class:"select-box"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduction %><br />
+    <%= f.text_area :introduction %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新する" %>
+  </div>
+<% end %>
