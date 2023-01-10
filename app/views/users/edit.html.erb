@@ -1,11 +1,12 @@
 <div class="test">users#edit</div>
-<%= form_with(model: @user, class: 'registration-main', local: true) do |f| %>
+<%= form_with(model: @user, class: 'registration-main', id: 'edit-profile', local: true) do |f| %>
   <%#= render "devise/shared/error_messages", resource: resource %>
 
   <% 5.times do |i| %>
   <div class="field">
-    <%= f.label :images, "画像#{i + 1}" %><br />
-    <%= f.file_field :images, name: 'user[images][]', data: {index: 0}, class: "image-file" %>
+    <%= f.label :images, "画像#{i + 1}" %>
+    <%= f.file_field :images, name: 'user[images][]', data: {index: 0}, class: "image-file", id: "user-image_#{i + 1}" %>
+    <%= tag.div(class: "preview-image-container", id: "preview_#{i + 1}") %>
   </div>
 
   <% end %>

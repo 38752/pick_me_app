@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'himas#index'
   resources :himas, only: [:index, :new, :create]
   resources :users, only: [:show, :edit, :update]
+  get 'himas/test', to: 'himas#test'
 end
