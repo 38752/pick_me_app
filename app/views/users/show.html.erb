@@ -9,9 +9,7 @@
         <%= image_tag(image, class: "profile-image") %>
       <% end %>
       <% else %>
-        <%= image_tag('Killua_icon.jpeg', class: "profile-image") %>
-        <%= image_tag('Killua_icon.jpeg', class: "profile-image") %>
-        <%= image_tag('Killua_icon.jpeg', class: "profile-image") %>
+        <%= "画像はまだありません" %>
       <% end %>
     </div>
     <div><%= "年齢：#{@user.how_old.profile}" %></div>
@@ -29,10 +27,17 @@
 </div>
 <div class="memo-profile">
   <h4>メモ※あなたにのみ表示されます</h4>
-  <%= link_to "編集", '#', class: "edit-button" %>
-  <div class="memo">
-    <%#= "ここにメモ" %>
-  </div>
+  <% if @memo == nil  %>
+    <%= link_to "作成", edit_user_memo_path(@user, current_user), class: "edit-button" %>
+    <div class="memo">
+      <%= "メモはまだありません" %>
+    </div>
+  <% else %>
+    <%= link_to "編集", edit_user_memo_path(@user, current_user), class: "edit-button" %>
+    <div class="memo">
+      <%= @memo.memo %>
+    </div>
+  <% end %>
 </div>
 <div class="lower-profile">
   <h4>自己紹介</h4>

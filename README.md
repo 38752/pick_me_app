@@ -93,11 +93,11 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
 
 ## memos テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| subject | references | null: false, foreign_key: true |
-| object  | references | null: false, foreign_key: true |
-| memo    | text       | null: false, default: ""       |
+| Column     | Type    | Options                        |
+| ---------- | ------- | ------------------------------ |
+| subject_id | integer | null: false, foreign_key: true |
+| object_id  | integer | null: false, foreign_key: true |
+| memo       | text    | null: false                    |
 
 ### Association
  - belongs_to :user
