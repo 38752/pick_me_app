@@ -1,17 +1,15 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :user_owner?, only: [:edit, :update]
+  before_action :set_user
   def show
-    set_user
     @memo = Memo.find_by(subject_id: current_user.id, object_id: params[:id].to_i)
   end
 
   def edit
-    set_user
   end
 
   def update
-    set_user
     if @user.update(profile_params)
       redirect_to user_path(current_user)
     else
