@@ -2,13 +2,14 @@
 <%= form_with(model: @user, class: 'registration-main', id: 'edit-profile', local: true) do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
 
-  <% 5.times do |i| %>
-  <div class="field">
-    <%= f.label :images, "画像#{i + 1}" %>
-    <%= f.file_field :images, name: 'user[images][]', accept: "image/*", class: "image-file", id: "user-image_#{i + 1}" %>
-    <%= tag.div(class: "preview-image-container", id: "preview_#{i + 1}") %>
-  </div>
-
+  <h4>画像</h4>
+  <div class="caution">1枚1MB未満の画像を選択してください</div>
+  <% 3.times do |i| %>
+    <div class="field">
+      <%= f.label :images, "画像#{i + 1}" %>
+      <%= f.file_field :images, name: 'user[images][]', accept: "image/*", class: "image-file", id: "user-image_#{i + 1}" %>
+      <%= tag.div(class: "preview-image-container", id: "preview_#{i + 1}") %>
+    </div>
   <% end %>
   <div class="field">
     <%= f.label :nickname, "ニックネーム" %><br />

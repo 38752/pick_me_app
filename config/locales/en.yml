@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  errors:
+    messages:
+      too_many_files: No more than 3 images can be attached
+      too_few_files: At least 1 image should be attached
