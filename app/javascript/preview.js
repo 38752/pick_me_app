@@ -41,7 +41,8 @@ document.addEventListener('DOMContentLoaded', function(){
     };
   };
 
-  const maxImages = 5
+  // 各要素に仕込むイベント等
+  const maxImages = 3
   for(let i = 1;i <= maxImages;i++) {
     // input要素を取得
     const fileField = document.querySelector(`input[type="file"][name="user[images][]"][id="user-image_${i}"]`);
