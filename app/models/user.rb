@@ -13,5 +13,6 @@ class User < ApplicationRecord
   has_many :himas
 
   validates :nickname, presence: true
-  validates :images, blob: { content_type: :image }
+  validates :images, attached_file_number: { maximum: 3 }
+  validates :images, blob: { content_type: :image, size_range: (10.kilobytes)..(1.megabytes) }
 end
