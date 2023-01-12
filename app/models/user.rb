@@ -13,6 +13,11 @@ class User < ApplicationRecord
   has_many :himas
 
   validates :nickname, presence: true
+
   validates :images, attached_file_number: { maximum: 3 }
   validates :images, blob: { content_type: :image, size_range: (10.kilobytes)..(1.megabytes) }
+
+  # Memoモデルとのアソシエーション
+  has_many :memoes,         class_name: "Memo", foreign_key: "subject_id", dependent: :destroy
+  has_many :reverse_memoes, class_name: "Memo", foreign_key: "object_id",  dependent: :destroy
 end

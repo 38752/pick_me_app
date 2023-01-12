@@ -1,0 +1,12 @@
+<div class="test">memos#edit</div>
+<%= @memo.memo %>
+<%= form_with(model: @memo, url: user_memo_path(@memo.object, @memo.subject), class: 'form', local: true) do |f| %>
+  <div class="field">
+    <%= f.label(:memo, 'メモ※この情報は他ユーザーには公開されません') %><br />
+    <%= f.text_area(:memo) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新する" %>
+  </div>
+<% end %>
