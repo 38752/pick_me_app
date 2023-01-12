@@ -5,11 +5,11 @@
     <% if @user == current_user %><%= link_to "編集", edit_user_path, class: "edit-button" %><% end %>
     <div class="images-container">
       <% if @user.images.attached? %>
-      <% @user.images.each do |image| %>
-        <%= image_tag(image, class: "profile-image") %>
-      <% end %>
+        <% @user.images.each do |image| %>
+          <%= image_tag(image.variant( resize: "300x300>" ).processed, class: "profile-image") %>
+        <% end %>
       <% else %>
-        <%= "画像はまだありません" %>
+        <%= image_tag("no_image.jpg", class: "profile-image") %>
       <% end %>
     </div>
     <div><%= "年齢：#{@user.how_old.profile}" %></div>
