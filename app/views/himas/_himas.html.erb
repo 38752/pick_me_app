@@ -4,7 +4,7 @@
   </h4>
   <div>
     <% if hima.user.images.attached? %>
-      <span><%= link_to image_tag(hima.user.images[0], class: "icon-image"), user_path(hima.user) %></span>
+      <span><%= link_to image_tag(hima.user.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(hima.user) %></span>
     <% else %>
       <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(hima.user) %></span>
     <% end %>
