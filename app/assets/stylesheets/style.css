@@ -139,3 +139,13 @@ h4 {
 }
 
 /* ▲/users/sign_up */
+
+
+/* ▼hit_on-form */
+.hit_on-form {
+  display: none;
+  /* visibility: hidden; */
+}
+
+
+/* ▲hit_on-form */

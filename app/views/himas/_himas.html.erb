@@ -1,4 +1,4 @@
-<div class="hima-unit">
+<div class="hima-unit", id="">
   <h4>
     <%= "id:#{hima.id}/タイトル:#{hima.title}" %>
   </h4>
@@ -30,10 +30,20 @@
   <div>
     <% if user_signed_in? %>
       <% if (hima.user != current_user) && (hima.hit_ons.where(user_id: current_user.id).empty?) %>
-        <span class="create-hit_on-button">
+        <span class="create-hit_on-button" >
           <%= image_tag('pose_kyosyu_hand.png', class: 'kyosyu-hand') %>
-          リクエストを送る
+          <span><%# JavaScript %></span>
         </span>
+        <%= form_with(model: @hit_on, url: '/', class: "hit_on-form", data: {id: hima.id}, local: true) do |f|  %>
+          <div class="field">
+            <div>
+              <%= f.text_area :line %>
+            </div>
+          </div>
+          <div class="actions">
+            <%= f.submit "投稿する" %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>

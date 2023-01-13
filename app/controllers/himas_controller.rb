@@ -2,6 +2,7 @@ class HimasController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   def index
     @himas = Hima.all.includes(:hima_purposes, :user, :hit_ons).order("created_at DESC")
+    @hit_on = HitOn.new
   end
 
   def new

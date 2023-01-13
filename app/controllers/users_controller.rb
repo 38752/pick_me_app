@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user
   def show
     @memo = Memo.find_by(subject_id: current_user.id, object_id: params[:id].to_i)
+    @hit_on = HitOn.new
   end
 
   def edit
