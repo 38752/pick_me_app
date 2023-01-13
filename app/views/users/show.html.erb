@@ -6,8 +6,7 @@
     <div class="images-container">
       <% if @user.images.attached? %>
         <% @user.images.each do |image| %>
-          <%= image_tag(image, class: "profile-image") %>
-          <%= image_tag(image.variant( resize: "300x300>" ).processed, class: "profile-image") %>
+          <%= image_tag(image.variant( resize: "500x500>" ).processed, class: "profile-image") %>
         <% end %>
       <% else %>
         <%= image_tag("no_image.jpg", class: "profile-image") %>
