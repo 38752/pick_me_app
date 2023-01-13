@@ -5,7 +5,6 @@ class MemosController < ApplicationController
     if @memo == nil
       @memo = Memo.create(memo: "", subject_id: params[:id].to_i, object_id: params[:user_id].to_i)
     end
-    binding.pry
   end
 
   def update

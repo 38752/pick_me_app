@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_10_123846) do
+ActiveRecord::Schema.define(version: 2023_01_13_033708) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -53,12 +53,24 @@ ActiveRecord::Schema.define(version: 2023_01_10_123846) do
     t.index ["user_id"], name: "index_himas_on_user_id"
   end
 
+  create_table "hit_ons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "hima_id", null: false
+    t.text "line", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hima_id"], name: "index_hit_ons_on_hima_id"
+    t.index ["user_id", "hima_id"], name: "index_hit_ons_on_user_id_and_hima_id", unique: true
+    t.index ["user_id"], name: "index_hit_ons_on_user_id"
+  end
+
   create_table "memos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "subject_id", null: false
     t.integer "object_id", null: false
     t.text "memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["subject_id", "object_id"], name: "index_memos_on_subject_id_and_object_id", unique: true
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -81,4 +93,6 @@ ActiveRecord::Schema.define(version: 2023_01_10_123846) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "hima_purposes", "himas"
   add_foreign_key "himas", "users"
+  add_foreign_key "hit_ons", "himas"
+  add_foreign_key "hit_ons", "users"
 end
