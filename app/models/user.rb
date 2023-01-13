@@ -14,8 +14,8 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
 
-  # validates :images, attached_file_number: { maximum: 3 }
-  # validates :images, blob: { content_type: :image, size_range: (5.kilobytes)..(1.megabytes) }
+  validates :images, attached_file_number: { maximum: 3 }
+  validates :images, blob: { content_type: :image, size_range: (5.kilobytes)..(1.megabytes) }
 
   # Memoモデルとのアソシエーション
   has_many :memoes,         class_name: "Memo", foreign_key: "subject_id", dependent: :destroy
