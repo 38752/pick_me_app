@@ -21,10 +21,20 @@
     <%= hima.text %>
   </div>
   <ul><h5>タグ</h5>
-  <% hima.hima_purposes.each do |purpose| %>
-    <% if purpose.flag == 1 %>
-      <li><%= purpose.purpose.name %></li>
+    <% hima.hima_purposes.each do |purpose| %>
+      <% if purpose.flag == 1 %>
+        <li><%= purpose.purpose.name %></li>
+      <% end %>
     <% end %>
-  <% end %>
   </ul>
+  <div>
+    <% if user_signed_in? %>
+      <% if (hima.user != current_user) && (hima.hit_ons.where(user_id: current_user.id).empty?) %>
+        <span class="create-hit_on-button">
+          <%= image_tag('pose_kyosyu_hand.png', class: 'kyosyu-hand') %>
+          リクエストを送る
+        </span>
+      <% end %>
+    <% end %>
+  </div>
 </div>
