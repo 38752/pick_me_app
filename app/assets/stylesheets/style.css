@@ -41,6 +41,7 @@ h4 {
 /* ▼/himas/index */
 .hima-unit {
   background-color: antiquewhite;
+  margin-bottom: 10px;
 }
 .icon-image {
   height: 50px;
@@ -50,6 +51,10 @@ h4 {
 
   border: 1px solid black;
   border-radius: 50%;
+}
+
+.hit_on-hand {
+  height: 20px;
 }
 /* ▲/himas/index */
 
@@ -134,3 +139,13 @@ h4 {
 }
 
 /* ▲/users/sign_up */
+
+
+/* ▼hit_on-form */
+.hit_on-form {
+  display: none;
+  /* visibility: hidden; */
+}
+
+
+/* ▲hit_on-form */

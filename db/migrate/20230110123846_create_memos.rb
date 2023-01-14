@@ -6,5 +6,6 @@ class CreateMemos < ActiveRecord::Migration[6.0]
       t.text    :memo
       t.timestamps
     end
+    add_index :memos, [:subject_id, :object_id], unique: true
   end
 end
