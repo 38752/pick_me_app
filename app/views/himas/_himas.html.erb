@@ -29,22 +29,49 @@
   </ul>
   <div>
     <% if user_signed_in? %>
-      <% if (hima.user != current_user) && (hima.hit_ons.where(user_id: current_user.id).empty?) %>
-        <span class="create-hit_on-button" >
-          <%= image_tag('pose_kyosyu_hand.png', class: 'kyosyu-hand') %>
-          <span><%# JavaScript %></span>
-        </span>
-        <%= form_with(model: @hit_on, url: '/', class: "hit_on-form", data: {id: hima.id}, local: true) do |f|  %>
-          <div class="field">
-            <div>
-              <%= f.text_area :line %>
-            </div>
+      <% if hima.user != current_user %>
+        <% if hima. hit_ons.where(user_id: current_user.id).empty? %>
+          <div class="hit_on-status-container">
+            <span class="create-hit_on-button hit_on-status" >
+              <%= image_tag('body_te.png', class: 'hit_on-hand') %>
+              <span><%# JavaScript %></span>
+            </span>
           </div>
-          <div class="actions">
-            <%= f.submit "投稿する" %>
+          <div class="hit_on-form-container">
+            <%= form_with(model: @hit_on, url: '#', class: "hit_on-form", data: {id: hima.id}, local: true) do |f|  %>
+              <div class="field">
+                <div>
+                  <%= f.text_area :line %>
+                </div>
+              </div>
+              <div class="actions">
+                <%= f.submit "送信" %>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="hit_on-status-container">
+            <span class="already-hit_on hit_on-status" >
+              <span>リクエスト済みです</span>
+            </span>
+          </div>
+          <div class="hit_on-container">
+            <%#= "ここにhit_onの内容？" %>
           </div>
         <% end %>
+      <% else %>
+        <div>
+          <span >
+            あなたの投稿です
+          </span>
+        </div>
       <% end %>
+    <% else %>
+      <div>
+        <span>
+          リクエストを送るには<a href='/users/sign_in'>ログイン</a>または<a href='/users/sign_up'>新規登録</a>してください
+        </span>
+      </div>
     <% end %>
   </div>
 </div>
