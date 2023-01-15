@@ -1,10 +1,6 @@
-class RelationshipIndex < ActiveHash::Base
-  self.data = [
-    { id: 1000, name: 'フォロー中' },
-    { id: 2000, name: 'フォロー解除中' },
-  ]
+class Relationship < ApplicationRecord
+  belongs_to :subject, class_name: "User"
+  belongs_to :object,  class_name: "User"
 
-  include ActiveHash::Associations
-  has_many :relationships
-
+  validates :subject_id, uniqueness: { scope: :object_id, message: "and object are already registrated  as a pair" }
 end
