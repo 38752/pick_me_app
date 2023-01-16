@@ -31,12 +31,12 @@ def create_active_hash(start_with, how_many_add, value_name)
   puts active_hash += "  ]\n\n  include ActiveHash::Associations\nend"
 end
 
-# idの始めの値
-start_with = 1000
-# idの増加幅
-how_many_add = 1000
-# 要素の名前
-value_name = "name"
+# # idの始めの値
+# start_with = 0
+# # idの増加幅
+# how_many_add = 10
+# # 要素の名前
+# value_name = "name"
 
-# 使う時だけコメントアウト外す
-create_active_hash(start_with, how_many_add, value_name)
+# # 使う時だけコメントアウト外す
+# create_active_hash(start_with, how_many_add, value_name)

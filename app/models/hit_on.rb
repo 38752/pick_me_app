@@ -3,6 +3,7 @@ class HitOn < ApplicationRecord
 
   belongs_to :user
   belongs_to :hima
+  has_one :room, dependent: :destroy
 
   validates :line, presence: true
   validates :user_id, numericality: { other_than: :hima_owner_id, message: "and hima's owner must be different" }
