@@ -153,12 +153,15 @@ add_index :hit_ons, [:user_id, :hima_id], unique: true
 
 ## rooms テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
+| Column               | Type    | Options                  |
+| -------------------- | ------- | ------------------------ |
+| room_status_index_id | integer | null: false, default: 10 |
+
 
 ### Association
  - has_many :room_users
  - has_many :users, through: :room_users
+ - belongs_to :room_status_index
 
 ## room_users テーブル
 | Column        | Type       | Options                        |
