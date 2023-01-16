@@ -2,9 +2,15 @@ class HitOnsController < ApplicationController
   def create
     hit_on_and_errors = {hit_on: nil, errors: nil}
     hit_on = HitOn.new(hit_on_params)
+    relationship = Relationship.find_by(subject_id: hit_on.user_id, object_id: hit_on.hima_owner_id)
 
     if hit_on.save
       hit_on_and_errors[:hit_on] = hit_on
+      if relationship == nil
+        Relationship.create(subject_id: hit_on.user_id, object_id: hit_on.hima_owner_id)
+      elsif relationship.relationship_index_id < 1000
+        relationship.update(relationship_index_id: 1000)
+      end
     else
       hit_on_and_errors[:errors] = hit_on.errors.full_messages
     end
