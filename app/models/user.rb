@@ -15,19 +15,23 @@ class User < ApplicationRecord
   has_many :hit_ons
 
   # Memoモデルとのアソシエーション
-  has_many :memoes,         class_name: "Memo", foreign_key: "subject_id", dependent: :destroy
-  has_many :reverse_memoes, class_name: "Memo", foreign_key: "object_id",  dependent: :destroy
+  has_many :memos,         class_name: "Memo", foreign_key: "subject_id", dependent: :destroy
+  has_many :reverse_memos, class_name: "Memo", foreign_key: "object_id",  dependent: :destroy
 
   # Relationshipモデルとのアソシエーション
   # subjectがフォローしたり、アンフォローしたりするための記述
   has_many :relationships, class_name: "Relationship", foreign_key: "subject_id", dependent: :destroy
-  #sourceは本当はobject_idとなっていてカラム名を示している。
-  # フォロー一覧を表示するための記述
+  # フォロー一覧を表示するための記述  sourceは本当はobject_idとなっていてカラム名を示している
   has_many :objects, through: :relationships, source: :object
 
   has_many :reverse_relationships, class_name: "Relationship", foreign_key: "object_id", dependent: :destroy
   # フォロワー一覧を表示するための記述
   has_many :subjects, through: :reverse_relationships, source: :subjects
+
+  # room関連のアソシエーション
+  has_many :rooms, class_name: "Room", foreign_key: "room_master_id", dependent: :destroy
+  has_many :room_users, dependent: :destroy
+  has_many :rooms, through: :room_users, dependent: :destroy
 
   # バリデーション
   validates :nickname, presence: true

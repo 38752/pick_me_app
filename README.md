@@ -70,12 +70,17 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
 
 ### Association
  - has_many :templates
- - has_many :memos
- - has_many :relationships
+ - has_many :memos,         class_name: "Memo", foreign_key: "subject_id", dependent: :destroy
+ - has_many :reverse_memos, class_name: "Memo", foreign_key: "object_id",  dependent: :destroy
+ - has_many :relationships, class_name: "Relationship", foreign_key: "subject_id", dependent: :destroy
+ - has_many :objects, through: :relationships, source: :object
+ - has_many :reverse_relationships, class_name: "Relationship", foreign_key: "object_id", dependent: :destroy
+ - has_many :subjects, through: :reverse_relationships, source: :subjects
  - has_many :himas
  - has_many :hit_ons
- - has_many :room_users
- - has_many :rooms, through: :room_users
+ - has_many :rooms, class_name: "Room", foreign_key: "room_master_id", dependent: :destroy
+ - has_many :room_users, dependent: :destroy
+ - has_many :rooms, through: :room_users, dependent: :destroy
  - has_many :messages
 
 ## templates テーブル
@@ -105,6 +110,7 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
 ## relationships テーブル
 
 | Column                | Type    | Options                        |
+| --------------------- | ------- | ------------------------------ |
 | subject_id            | integer | null: false, foreign_key: true |
 | object_id             | integer | null: false, foreign_key: true |
 | relationship_index_id | integer | null: false, default: 1000     |
@@ -151,16 +157,20 @@ add_index :hit_ons, [:user_id, :hima_id], unique: true
 ### Association
  - belongs_to :user
  - belongs_to :hima
+ - has_one :room, dependent: :destroy
 
 ## rooms テーブル
 
-| Column               | Type    | Options                  |
-| -------------------- | ------- | ------------------------ |
-| room_status_index_id | integer | null: false, default: 10 |
-
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| hit_on               | references | null: false, foreign_key: true |
+| room_master_id       | integer    | null: false, foreign_key: true |
+| room_status_index_id | integer    | null: false, default: 10       |
 
 ### Association
- - has_many :room_users
+ - belongs_to :hit_on
+ - belongs_to :room_master, class_name: "User"
+ - has_many :room_users, dependent: :destroy
  - has_many :users, through: :room_users
  - belongs_to :room_status_index
 
