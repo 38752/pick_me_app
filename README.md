@@ -104,10 +104,11 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
 
 ## relationships テーブル
 
-| Column          | Type       | Options                        |
-| subject         | references | null: false, foreign_key: true |
-| object          | references | null: false, foreign_key: true |
-| relationship_id | integer    | null: false, default: 1000     |
+| Column                | Type    | Options                        |
+| subject_id            | integer | null: false, foreign_key: true |
+| object_id             | integer | null: false, foreign_key: true |
+| relationship_index_id | integer | null: false, default: 1000     |
+add_index :relationships, [:subject_id, :object_id], unique: true
 
 ### Association
  - belongs_to :user

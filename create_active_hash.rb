@@ -1,13 +1,14 @@
-def create_active_hash(start_with, value_name)
+def create_active_hash(start_with, how_many_add, value_name)
   puts 'class名を入力してください'
   active_hash = "class #{gets.chomp} < ActiveHash::Base\n  self.data = [\n"
   list = []
   input = ''
-  while input != 'finished'
+  while true
     puts "#{list.length + 1}番目の要素を入力してください"
     input = gets.chomp
     case input
     when 'finished'
+      break
     when 'rollback'
       if list.empty?
         puts '要素はありません'
@@ -25,15 +26,17 @@ def create_active_hash(start_with, value_name)
   i = start_with
   list.each do |name|
     active_hash += "    { id: #{i}, #{value_name}: '#{name}' },\n"
-    i += 1
+    i += how_many_add
   end
   puts active_hash += "  ]\n\n  include ActiveHash::Associations\nend"
 end
 
-# # idの始めの値
-# start_with = 1
-# # 要素の名前
-# value_name = "name"
+# idの始めの値
+start_with = 1000
+# idの増加幅
+how_many_add = 1000
+# 要素の名前
+value_name = "name"
 
-# # 使う時だけコメントアウト外す
-# create_active_hash(start_with, value_name)
+# 使う時だけコメントアウト外す
+create_active_hash(start_with, how_many_add, value_name)
