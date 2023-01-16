@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2023_01_15_065018) do
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "subject_id", null: false
     t.integer "object_id", null: false
+    t.integer "relationship_index_id", default: 1000, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subject_id", "object_id"], name: "index_relationships_on_subject_id_and_object_id", unique: true
