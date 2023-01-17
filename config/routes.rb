@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     resources :memos, only: [:edit, :update]
   end
-  resources :rooms, only: [:index]
+  resources :rooms, only: [:index] do
+    resources :messages, only: [:index]
+  end
 end

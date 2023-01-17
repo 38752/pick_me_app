@@ -9,6 +9,6 @@
   </div>
   <div class="right-room-unit">
     <div class="nickname-room-unit"><%= link_to object.nickname, user_path(object), target: "_blank", rel: "noreferrer noopener"  %></div>
-    <div class="message-room-unit"><%= link_to room.hit_on.line, '#', class: "current-message" %></div>
+    <div class="message-room-unit"><%= link_to room.hit_on.line, room_messages_path(room), class: "current-message", target: "_blank", rel: "noreferrer noopener" %></div>
   </div>
 </div>
