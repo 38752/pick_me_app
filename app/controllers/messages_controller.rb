@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :room_participant?
   def index
-    
+    @message = Message.new
   end
 
   private

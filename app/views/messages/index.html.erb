@@ -5,9 +5,16 @@
   </div>
   <div class="messages-container">
   </div>
-  <div class="message-form">
+  <div class="message-form-container">
     <% if @room.room_status_index_id == 20 %>
-      <%# フォーム %>
+      <%= form_with model: [@room, @message], class: 'message-form', local: true do |f| %>
+        <div class="message-input">
+          <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
+        </div>
+        <div class="message-input">
+          <%= f.submit '送信', class: 'form-submit' %>
+        </div>
+      <% end %>
     <% elsif @room.room_status_index_id == 99 %>
       <span class="why-cannot-send-messages">クローズ済みのトークルームでメッセージを送ることはできません</span>
     <% else %>

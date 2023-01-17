@@ -233,11 +233,15 @@ h4 {
   background-color:cornsilk;
 }
 
-.message-form {
+.message-form-container {
   height: 60px;
   line-height: 60px;
   background-color: #fafafa;
-  padding: 10px;
+  padding: 10px 20px;
 }
 
+.message-form {
+  display: flex;
+  justify-content: space-between;
+}
 /* ▲/rooms/:room_id/messages */
