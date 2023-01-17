@@ -29,7 +29,7 @@ def create_active_hash(start_with, how_many_add, value_name)
   active_hash = "class #{class_name} < ActiveHash::Base\n  self.data = [\n"
   list = []
   input = ''
-  while true
+  while true do
     puts "#{list.length + 1}番目の要素を入力してください"
     input = gets.chomp
     case input
