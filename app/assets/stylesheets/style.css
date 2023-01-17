@@ -217,3 +217,27 @@ h4 {
 }
 
 /* ▲/rooms */
+
+
+/* ▼/rooms/:room_id/messages */
+.message-main {
+  width: 60vw;
+  height: 1000px;
+  margin: auto;
+
+}
+
+.messages-container {
+  height: 70vh;
+  overflow-y: scroll;
+  background-color:cornsilk;
+}
+
+.message-form {
+  height: 60px;
+  line-height: 60px;
+  background-color: #fafafa;
+  padding: 10px;
+}
+
+/* ▲/rooms/:room_id/messages */

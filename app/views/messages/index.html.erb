@@ -1,1 +1,17 @@
 <div class="test">messages#index</div>
+<div class="message-main">
+  <div class="talk-with">
+    <%= "nicknameさんとのトークルーム" %>
+  </div>
+  <div class="messages-container">
+  </div>
+  <div class="message-form">
+    <% if @room.room_status_index_id == 20 %>
+      <%# フォーム %>
+    <% elsif @room.room_status_index_id == 99 %>
+      <span class="why-cannot-send-messages">クローズ済みのトークルームでメッセージを送ることはできません</span>
+    <% else %>
+      <span class="why-cannot-send-messages">相手がリクエストを受け取るまでメッセージを送ることはできません</span>
+    <% end %>
+  </div>
+</div>
