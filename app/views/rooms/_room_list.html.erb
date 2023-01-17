@@ -1,0 +1,14 @@
+<div class="room-unit">
+  <% object = room.users.find_by("user_id != ?", current_user.id)  %>
+  <div class="left-room-unit">
+    <% if object.images.attached? %>
+      <span><%= link_to image_tag(object.images[0].variant( resize: "400x400>" ).processed, class: "icon-image"), user_path(object) %></span>
+    <% else %>
+      <span><%= link_to image_tag('new_user_icon.png', class: "room-icon-image"), user_path(object), target: "_blank", rel: "noreferrer noopener" %></span>
+    <% end %>
+  </div>
+  <div class="right-room-unit">
+    <div class="nickname-room-unit"><%= link_to object.nickname, user_path(object), target: "_blank", rel: "noreferrer noopener"  %></div>
+    <div class="message-room-unit"><%= link_to room.hit_on.line, '#', class: "current-message" %></div>
+  </div>
+</div>

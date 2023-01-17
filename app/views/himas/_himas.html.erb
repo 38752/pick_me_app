@@ -4,11 +4,11 @@
   </h4>
   <div>
     <% if hima.user.images.attached? %>
-      <span><%= link_to image_tag(hima.user.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(hima.user) %></span>
+      <span><%= link_to image_tag(hima.user.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(hima.user), target: "_blank", rel: "noreferrer noopener" %></span>
     <% else %>
-      <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(hima.user) %></span>
+      <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(hima.user), target: "_blank", rel: "noreferrer noopener" %></span>
     <% end %>
-    <%= link_to hima.user.nickname, user_path(hima.user) %>
+    <%= link_to hima.user.nickname, user_path(hima.user), target: "_blank", rel: "noreferrer noopener" %>
   </div>
   <div>
     <% if hima.location != "" %>
@@ -56,7 +56,7 @@
             </span>
           </div>
           <div class="hit_on-container">
-            <%#= "ここにhit_onの内容？" %>
+            <%#= "ここにhit_onの内容" %>
           </div>
         <% end %>
       <% else %>

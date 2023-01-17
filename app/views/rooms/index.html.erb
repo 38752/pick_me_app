@@ -1,0 +1,42 @@
+<div class="test">rooms#index</div>
+<div class="rooms-main">
+  <div class="room-categories">
+    <div class="room-category-container" data-number='0'>
+      <%= link_to 'トーク中', '#', class: "room-category" %>
+    </div>
+    <div class="room-category-container" data-number='1'>
+      <%= link_to 'リクエスト', '#', class: "room-category" %>
+    </div>
+    <div class="room-category-container" data-number='2'>
+      <%= link_to 'コンスタントルーム', '#', class: "room-category" %>
+    </div>
+  </div>
+
+  <div class="rooms-container">
+    <div class="rooms" id="rooms-category_0">
+      <%# トーク中 %>
+      <% if @talking_rooms.any? %>
+        <% @talking_rooms.each do |room| %>
+          <%= render partial: 'room_list', locals: { room: room } %>
+        <% end %>
+      <% else %>
+        <div><%= 'トーク中のルームはありません' %></div>
+      <% end %>
+    </div>
+    <div class="rooms" id="rooms-category_1">
+      <%# 未承認リクエスト %>
+      <% if @unapproved_request_rooms.any? %>
+        <% @unapproved_request_rooms.each do |room| %>
+          <%= render partial: 'room_list', locals: { room: room } %>
+        <% end %>
+      <% else %>
+        <div><%= '新規リクエストはありません' %></div>
+      <% end %>
+    </div>
+    <div class="rooms" id="rooms-category_2">
+      <%# コンスタントルーム %>
+      <%= "未実装" %><br>
+      <%= "リクエストごとに作成されるトークルームとは異なる、クローズ不可のトークルームでのチャット機能を実装予定" %>
+    </div>
+  </div>
+</div>

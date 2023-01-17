@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require('../preview')
 require('../display_hit_on_form.js')
+require('../active_room_category.js')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

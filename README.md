@@ -173,7 +173,7 @@ add_index :hit_ons, [:user_id, :hima_id], unique: true
  - has_many :room_users, dependent: :destroy
  - has_many :users, through: :room_users
  - belongs_to :room_status_index
-
+紐
 ## room_users テーブル
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
