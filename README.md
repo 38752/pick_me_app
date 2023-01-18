@@ -81,7 +81,7 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
  - has_many :rooms, class_name: "Room", foreign_key: "room_master_id", dependent: :destroy
  - has_many :room_users, dependent: :destroy
  - has_many :rooms, through: :room_users, dependent: :destroy
- - has_many :messages, dependent: :destroy
+ - has_many :contents, dependent: :destroy
 
 ## templates テーブル
 
@@ -173,7 +173,7 @@ add_index :hit_ons, [:user_id, :hima_id], unique: true
  - has_many :room_users, dependent: :destroy
  - has_many :users, through: :room_users
  - belongs_to :room_status_index
- - has_many :messages, dependent: :destroy
+ - has_many :contents, dependent: :destroy
 
 ## room_users テーブル
 | Column        | Type       | Options                        |

@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     resources :memos, only: [:edit, :update]
   end
   resources :rooms, only: [:index] do
-    resources :messages, only: [:index]
+    resources :messages, only: [:index, :create]
   end
 end
