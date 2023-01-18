@@ -1,7 +1,7 @@
 <div class="test">messages#index</div>
 <div class="message-main">
   <div class="talk-with">
-    <%= "nicknameさんとのトークルーム" %>
+    <%= "#{@object.nickname}さんとのトークルーム" %>
   </div>
   <div class="messages-container">
   </div>
@@ -16,9 +16,23 @@
         </div>
       <% end %>
     <% elsif @room.room_status_index_id == 99 %>
-      <span class="why-cannot-send-messages">クローズ済みのトークルームでメッセージを送ることはできません</span>
+      <div class="why-cannot-send-messages">クローズ済みのトークルームでメッセージを送ることはできません</div>
+    <% elsif (@room.room_status_index_id == 10) && (@room.room_master == current_user) %>
+      <div class="accept-or-not-hit_on">
+        <div class="why-cannot-send-messages"><%= "#{@object.nickname}さんからのリクエストを受け取りますか？" %></div>
+        <div class="accept-or-not-buttons">
+          <%= form_with url: accept_room_path(@room), method: :put, class: "accept-or-not-button", local: true do |f| %>
+            <%= f.submit "はい" %>
+          <% end %>
+          <%= form_with url: reject_room_path(@room), method: :put, class: "accept-or-not-button", local: true do |f| %>
+            <%= f.submit "いいえ" %>
+          <% end %>
+        </div>
+      </div>
+    <% elsif (@room.room_status_index_id == 0) && (@room.room_master == current_user) %>
+      <div class="why-cannot-send-messages">このリクエストは受け取りませんでした</div>
     <% else %>
-      <span class="why-cannot-send-messages">相手がリクエストを受け取るまでメッセージを送ることはできません</span>
+      <div class="why-cannot-send-messages">相手がリクエストを受け取るまでメッセージを送ることはできません</div>
     <% end %>
   </div>
 </div>

@@ -13,7 +13,6 @@ class HimasController < ApplicationController
   def create
     @purposes = Purpose.all
     @hima_form = HimaForm.new(hima_form_params)
-    binding.pry
     if @hima_form.valid?
       @hima_form.save
       redirect_to root_path

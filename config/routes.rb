@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     resources :memos, only: [:edit, :update]
   end
   resources :rooms, only: [:index] do
+    member do
+      put 'accept'
+      put 'reject'
+    end
     resources :messages, only: [:index, :create]
   end
 end

@@ -8,7 +8,6 @@ class MessagesController < ApplicationController
 
   def create
     @message = @room.messages.new(message_params)
-    # binding.pry
     if @message.save
       redirect_to room_messages_path(@room)
     else

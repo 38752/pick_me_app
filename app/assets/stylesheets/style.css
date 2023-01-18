@@ -222,7 +222,6 @@ h4 {
 /* ▼/rooms/:room_id/messages */
 .message-main {
   width: 60vw;
-  height: 1000px;
   margin: auto;
 
 }
@@ -238,10 +237,24 @@ h4 {
   line-height: 60px;
   background-color: #fafafa;
   padding: 10px 20px;
+  justify-content: space-between;
 }
 
 .message-form {
   display: flex;
   justify-content: space-between;
+}
+
+.accept-or-not-hit_on {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accept-or-not-buttons {
+  display: flex;
+}
+
+.accept-or-not-button{
+  margin-left: 20px;
 }
 /* ▲/rooms/:room_id/messages */
