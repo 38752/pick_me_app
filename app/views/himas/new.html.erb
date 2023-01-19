@@ -1,5 +1,5 @@
 <div class="test">himas#new</div>
-<%= form_with model: @hima_form, url: himas_path, local: true do |f| %>
+<%= form_with model: @hima_form, url: himas_path, class: "new-hima-form", local: true do |f| %>
   <%= render 'error_messages', model: @hima_form %>
   <div class="field">
    <%= f.label :title, "タイトル（必須）" %>

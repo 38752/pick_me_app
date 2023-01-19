@@ -71,9 +71,16 @@ h4 {
 }
 
 .hit_on-text_area {
-  width: 70%;
+  min-width: 70%;
+  max-width: 70%;
 }
 /* ▲/himas/index */
+
+/* ▼/himas/new */
+.new-hima-form {
+  padding: 10px;
+}
+/* ▲/himas/new */
 
 /* ▼/users/:id */
 .edit-button {
