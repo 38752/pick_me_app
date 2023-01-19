@@ -1,7 +1,7 @@
-<div class="test">users#show</div>
+<%= render partial: 'shared/page_title', locals: { title: "#{@user.nickname}さんの個人ページ" } %>
 <div class="upper-profile">
   <div class="profile-summary">
-    <h4><%= "id:#{@user.id} nickname:#{@user.nickname}さんのプロフィール" %></h4>
+    <h4><%= "#{@user.nickname}さんのプロフィール" %></h4>
     <% if @user == current_user %><%= link_to "編集", edit_user_path, class: "edit-button" %><% end %>
     <div class="images-container">
       <% if @user.images.attached? %>

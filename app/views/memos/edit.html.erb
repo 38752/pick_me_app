@@ -1,4 +1,4 @@
-<div class="test">memos#edit</div>
+<%= render partial: 'shared/page_title', locals: { title: "#{@memo.object.nickname}さんへのメモ編集" } %>
 <%= @memo.memo %>
 <%= form_with(model: @memo, url: user_memo_path(@memo.object, @memo.subject), class: 'form', local: true) do |f| %>
   <div class="field">

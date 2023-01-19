@@ -1,22 +1,22 @@
-<div class="test">himas#new</div>
+<%= render partial: 'shared/page_title', locals: { title: "新規投稿" } %>
 <%= form_with model: @hima_form, url: himas_path, class: "new-hima-form", local: true do |f| %>
   <%= render 'error_messages', model: @hima_form %>
   <div class="field">
    <%= f.label :title, "タイトル（必須）" %>
    <div>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "thirty-vw-form" %>
    </div>
   </div>
   <div class="field">
    <%= f.label :location, "ロケーション（任意）" %>
    <div>
-    <%= f.text_field :location %>
+    <%= f.text_field :location, class: "thirty-vw-form" %>
    </div>
   </div>
   <div class="field">
     <%= f.label :text, "本文（必須）" %>
     <div>
-      <%= f.text_area :text %>
+      <%= f.text_area :text, class: "thirty-vw-form" %>
     </div>
   </div>
 
@@ -30,12 +30,11 @@
     <% end %>
   <h2>公開範囲</h2>
   <div class="field">
-    <%= f.label :open_range_id, "公開範囲" %>
     <div>
       <%= f.collection_select :open_range_id, OpenRange.all, :id, :name %>
     </div>
   </div>
-
+  <br>
   <div class="actions">
     <%= f.submit "投稿する" %>
   </div>

@@ -1,5 +1,5 @@
 .pillow {
-  height: 90px;
+  height: 80px;
 }
 
 a {
@@ -12,6 +12,7 @@ h4 {
   display: inline;
 }
 
+/* ▼ヘッダー */
 .header {
   padding: 10px 20px;
   border-bottom: 1px solid #D8D8D8;
@@ -54,7 +55,11 @@ h4 {
   padding: 5px;
   margin-bottom: 5px;
 }
+/* ▲ヘッダー */
 
+.footer {
+  height: 50px;
+}
 .test {
   font-size: 40px;
   color: black;
@@ -62,10 +67,11 @@ h4 {
 
 /* ▼ページタイトル */
 .page-title-main {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .page-title-container {
+  max-width: 90vw;
   padding: 20px 10px;
   margin: auto;
   text-align: center;
@@ -80,12 +86,21 @@ h4 {
 }
 /* ▲ページタイトル */
 
+/* ▲フォーム関連 */
+.thirty-vw-form {
+  min-width: 30vw;
+  max-width: 30vw;
+}
+/* ▲フォーム関連 */
+
+/* ▼表示できないメッセージのspan要素 */
 .cannnot-show {
   text-align: center;
   font-size: 24px;
   line-height: 36px;
   color: #777;
 }
+/* ▲表示できないメッセージのspan要素 */
 
 /* --------------------------------- */
 /* ▼/himas/index */
@@ -133,6 +148,9 @@ h4 {
 /* ▼/himas/new */
 .new-hima-form {
   padding: 10px;
+  margin: auto;
+  width: 60vw;
+  background-color: antiquewhite;
 }
 /* ▲/himas/new */
 
@@ -309,15 +327,16 @@ h4 {
 
 }
 
-.talk-with {
+.close-room-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
 }
 .messages-container {
-  height: 70vh;
+  height: 50vh;
   padding: 10px;
   overflow-y: scroll;
   background-color:cornsilk;
+  border: 1px solid #eeeeee;
 }
 
 .my-message {
@@ -337,8 +356,8 @@ h4 {
 }
 
 .message-form-container {
-  height: 60px;
-  line-height: 60px;
+  height: 40px;
+  line-height: 40px;
   background-color: #eeeeee;
   padding: 10px 20px;
   justify-content: space-between;
@@ -349,6 +368,11 @@ h4 {
   justify-content: space-between;
 }
 
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&6 */
+.form-message {
+  width: 40vw;
+}
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&6 */
 .accept-or-not-hit_on {
   display: flex;
   justify-content: space-between;

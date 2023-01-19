@@ -1,12 +1,9 @@
-<div class="test">messages#index</div>
+<%= render partial: 'shared/page_title', locals: { title: "#{@object.nickname}さんとのトークルーム" } %>
 <div class="message-main">
-  <div class="talk-with">
-    <div>
-      <%= link_to("#{@object.nickname}さん", user_path(@object), target: "_blank", rel: "noreferrer noopener") %>とのトークルーム
-    </div>
-    <div>
-      <span>トークルームを<a id="close-room-button" data-room_id="<%= @room.id %>" href="#">クローズ</a>する</span>
-    </div>
+  <div class="close-room-container">
+    <% if (@room.room_master == current_user) && (@room.room_status_index_id == 20) %>
+      <span>トークルームを<a id="close-room-button" class="mouseover-weightier" data-room_id="<%= @room.id %>" href="#">クローズ</a>する</span>
+    <% end %>
   </div>
   <div class="messages-container">
     <a href="#current" id="to-current-button"></a> <%# 最新のメッセージを表示させる(スタート) %>

@@ -1,4 +1,4 @@
-<div class="test">users#edit</div>
+<%= render partial: 'shared/page_title', locals: { title: "マイページ編集" } %>
 <%= form_with(model: @user, class: 'registration-main', id: 'edit-profile', local: true) do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
 
