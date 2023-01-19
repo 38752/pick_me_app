@@ -18,6 +18,7 @@
             <li>
               <%= link_to "#{current_user.nickname}さん", user_path(current_user) %>
               <%= link_to "トークルーム一覧", rooms_path %>
+              <%= link_to "リクエスト中", hit_ons_path %>
               <%= link_to "新規投稿", new_hima_path %>
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             </li>

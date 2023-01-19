@@ -3,7 +3,11 @@ class HitOnsController < ApplicationController
   # ↑createの際は、エラー内容をjsonで返すため照合不要
 
   def index
-    @hit_ons = HitOn.where(user_id == current_user.id).includes(:user, :room, :messages, :room_master).order("id DESC")
+    @requesting_rooms = current_user.rooms.where(
+                          room_status_index_id: 10).where(
+                            "room_master_id != ?", current_user.id).includes(
+                              :hit_on, :room_master).order("updated_at DESC"
+                        )
   end
 
   def create
