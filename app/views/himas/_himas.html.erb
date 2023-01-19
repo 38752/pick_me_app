@@ -3,13 +3,13 @@
     <%= hima.title %>
   </h4>
   <br><br>
-  <div>
+  <div class="hima-user-info">
     <% if hima.user.images.attached? %>
       <span><%= link_to image_tag(hima.user.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(hima.user), target: "_blank", rel: "noreferrer noopener" %></span>
     <% else %>
       <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(hima.user), target: "_blank", rel: "noreferrer noopener" %></span>
     <% end %>
-    <%= link_to hima.user.nickname, user_path(hima.user), target: "_blank", rel: "noreferrer noopener" %>
+    <%= link_to hima.user.nickname, user_path(hima.user), class: "hima-user-name", target: "_blank", rel: "noreferrer noopener" %>
   </div>
   <br>
   <div>
@@ -77,7 +77,7 @@
     <% else %>
       <div>
         <span>
-          リクエストを送るには<a href='/users/sign_in'>ログイン</a>または<a href='/users/sign_up'>新規登録</a>してください
+          リクエストを送るには<a href='/users/sign_in'><u>ログイン</u></a>または<a href='/users/sign_up'><u>新規登録</u></a>してください
         </span>
       </div>
     <% end %>

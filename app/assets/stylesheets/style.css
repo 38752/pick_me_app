@@ -38,12 +38,34 @@ h4 {
   color: black;
 }
 
+/* ▼ページタイトル */
+.page-title-main {
+  margin-bottom: 50px;
+}
+
+.page-title-container {
+  padding: 20px 10px;
+  margin: auto;
+  text-align: center;
+  border-bottom: 2px solid black;
+  font-size: 30px;
+  /* font-weight: 600; */
+  letter-spacing: 2px;
+}
+
+.page-requesting-room-category {
+  padding: 15px 10%;
+}
+/* ▲ページタイトル */
+
 .cannnot-show {
   text-align: center;
   font-size: 24px;
   line-height: 36px;
   color: #777;
 }
+
+/* --------------------------------- */
 /* ▼/himas/index */
 .hima-unit {
   max-width: 60vw;
@@ -52,6 +74,16 @@ h4 {
   margin: 0 auto 10px;
   line-height: 20px;
 }
+
+.hima-user-info {
+  position: relative;
+}
+.hima-user-name {
+  position: absolute;
+  top: 25px;
+  left: 60px;
+}
+
 .icon-image {
   height: 50px;
   width: 50px;
@@ -308,3 +340,27 @@ h4 {
   margin-left: 20px;
 }
 /* ▲/rooms/:room_id/messages */
+
+
+/* ▼/hit_ons */
+.requesting-room-categories {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.requesting-room-category-container {
+  width: 20vw;
+  padding: 20px 10px;
+  margin: auto;
+  text-align: center;
+  border-bottom: 2px solid black;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.requesting-room-category {
+  padding: 15px 10%;
+}
+
+/* ▲/hit_ons */
