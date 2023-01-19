@@ -1,7 +1,12 @@
 <div class="test">messages#index</div>
 <div class="message-main">
   <div class="talk-with">
-    <%= link_to("#{@object.nickname}さん", user_path(@object), target: "_blank", rel: "noreferrer noopener") %>とのトークルーム
+    <div>
+      <%= link_to("#{@object.nickname}さん", user_path(@object), target: "_blank", rel: "noreferrer noopener") %>とのトークルーム
+    </div>
+    <div>
+      <span>トークルームを<a id="close-room-button" data-room_id="<%= @room.id %>" href="#">クローズ</a>する</span>
+    </div>
   </div>
   <div class="messages-container">
     <a href="#current" id="to-current-button"></a> <%# 最新のメッセージを表示させる(スタート) %>

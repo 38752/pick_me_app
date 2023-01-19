@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     member do
       put 'accept'
       put 'reject'
+      get 'close'
     end
     resources :messages, only: [:index, :create]
   end

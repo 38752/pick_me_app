@@ -1,8 +1,9 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_room, only: [:accept, :reject]
-  before_action :room_master?, only: [:accept, :reject]
-  before_action :normal_status?, only: [:accept, :reject]
+  before_action :set_room,       only: [:accept, :reject, :close]
+  before_action :room_master?,   only: [:accept, :reject, :close]
+  before_action :before_accept?, only: [:accept, :reject]
+  before_action :room_open?,     only: [:close]
   def index
     # binding.pry
     @talking_rooms = current_user.rooms.where(room_status_index_id: 20).order("updated_at DESC")
@@ -19,6 +20,11 @@ class RoomsController < ApplicationController
     redirect_to rooms_path
   end
 
+  def close
+    @room.update(room_status_index_id: 99)
+    redirect_to rooms_path
+  end
+
   private
 
   def set_room
@@ -29,7 +35,11 @@ class RoomsController < ApplicationController
     redirect_to rooms_path if @room.room_master != current_user
   end
 
-  def normal_status?
+  def before_accept?
     redirect_to rooms_path if @room.room_status_index_id != 10
+  end
+
+  def room_open?
+    redirect_to rooms_path if @room.room_status_index_id != 20
   end
 end
