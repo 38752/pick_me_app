@@ -1,10 +1,55 @@
 <div class="test">messages#index</div>
 <div class="message-main">
   <div class="talk-with">
-    <%= "#{@object.nickname}さんとのトークルーム" %>
+    <%= link_to("#{@object.nickname}さん", user_path(@object), target: "_blank", rel: "noreferrer noopener") %>とのトークルーム
   </div>
   <div class="messages-container">
+    <a href="#current" id="to-current-button"></a> <%# 最新のメッセージを表示させる(スタート) %>
+    <%# himaとhit＿on %>
+    <div class="first-contact">
+      <% if @hima.user == current_user %>
+        <div class="my-message">
+          <%= render partial: 'hima_for_message', locals: { hima: @hima } %>
+        </div>
+        <div>
+          <div>
+            <% if @object.images.attached? %>
+              <span><%= link_to image_tag(@object.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
+            <% else %>
+              <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
+            <% end %>
+          </div>
+          <div class="others-message">
+            <%= @hit_on.line %>
+          </div>
+        </div>
+      <% else %>
+        <div>
+          <div>
+            <% if @object.images.attached? %>
+              <span><%= link_to image_tag(@object.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
+            <% else %>
+              <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
+            <% end %>
+          </div>
+          <div class="others-message">
+            <%= render partial: 'hima_for_message', locals: { hima: @hima } %>
+          </div>
+        </div>
+        <div class="my-message">
+          <%= @hit_on.line %>
+        </div>
+      <% end %>
+    </div>
+    <%# メッセージここから %>
+    <div class="messages">
+      <% @messages.each do |message| %>
+        <%= render partial: 'messages', locals: { message: message } %>
+      <% end %>
+    </div>
+    <span id="current"></span> <%# 最新のメッセージを表示させる(ゴール) %>
   </div>
+  <%# フォームここから %>
   <div class="message-form-container">
     <% if @room.room_status_index_id == 20 %>
       <%= form_with model: [@room, @message], class: 'message-form', local: true do |f| %>

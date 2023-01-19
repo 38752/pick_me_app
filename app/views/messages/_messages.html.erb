@@ -1,0 +1,20 @@
+<div>
+  <% if message.user == current_user %>
+    <div class="my-message">
+      <%= message.content %>
+    </div>
+  <% else %>
+    <div>
+      <div>
+        <% if message.user.images.attached? %>
+          <span><%= link_to image_tag(message.user.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(message.user), target: "_blank", rel: "noreferrer noopener" %></span>
+        <% else %>
+          <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(message.user), target: "_blank", rel: "noreferrer noopener" %></span>
+        <% end %>
+      </div>
+      <div class="others-message">
+        <%= message.content %>
+      </div>
+    </div>
+  <% end %>
+</div>

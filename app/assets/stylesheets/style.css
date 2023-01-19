@@ -40,8 +40,11 @@ h4 {
 
 /* ▼/himas/index */
 .hima-unit {
+  width: 60vw;
   background-color: antiquewhite;
-  margin-bottom: 10px;
+  padding: 10px;
+  margin: 0 auto 10px;
+  line-height: 20px;
 }
 .icon-image {
   height: 50px;
@@ -53,8 +56,16 @@ h4 {
   border-radius: 50%;
 }
 
+.purpose-list {
+  padding-left: 15px;
+}
+
 .hit_on-hand {
   height: 20px;
+}
+
+.hit_on-text_area {
+  width: 70%;
 }
 /* ▲/himas/index */
 
@@ -228,14 +239,31 @@ h4 {
 
 .messages-container {
   height: 70vh;
+  padding: 10px;
   overflow-y: scroll;
   background-color:cornsilk;
+}
+
+.my-message {
+  width: 30vw;
+  background-color: #fafafa;
+  padding: 10px;
+  margin: 0 0 0 auto;
+  margin-bottom: 10px;
+  word-break: break-all;
+}
+.others-message {
+  width: 30vw;
+  background-color: #fafafa;
+  padding: 10px;
+  margin-bottom: 10px;
+  word-break: break-all;
 }
 
 .message-form-container {
   height: 60px;
   line-height: 60px;
-  background-color: #fafafa;
+  background-color: #eeeeee;
   padding: 10px 20px;
   justify-content: space-between;
 }
