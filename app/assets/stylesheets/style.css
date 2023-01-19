@@ -112,6 +112,12 @@ h4 {
   line-height: 20px;
 }
 
+.hima-created_at {
+  margin-left: 20px;
+  font-size: 12px;
+  color: #666;
+}
+
 .hima-user-info {
   position: relative;
 }
@@ -325,7 +331,6 @@ h4 {
 .message-main {
   width: 60vw;
   margin: auto;
-
 }
 
 .close-room-container {
@@ -340,22 +345,53 @@ h4 {
   border: 1px solid #eeeeee;
 }
 
-.my-message {
+/* メッセージに表示するファーストコンタクト */
+.my-first-contact {
   width: 30vw;
-  background-color: #fafafa;
-  padding: 10px;
   margin: 0 0 0 auto;
   margin-bottom: 10px;
-  word-break: break-all;
 }
-.others-message {
+.others-first-contact {
   width: 30vw;
-  background-color: #fafafa;
-  padding: 10px;
   margin-bottom: 10px;
+}
+.message-content-first-contact {
+  padding: 10px;
+  background-color: antiquewhite;
+  margin-bottom: 5px;
   word-break: break-all;
 }
 
+/* メッセージに表示するメッセージ */
+.message {
+  width: 30vw;
+  margin-bottom: 10px;
+  word-break: break-all;
+}
+.my-message {
+  margin: 0 0 0 auto;
+}
+.others-message {
+
+}
+
+.message-content {
+  background-color: antiquewhite;
+  padding: 10px;
+  margin-bottom: 5px;
+  word-break: break-all;
+}
+
+/* メッセージに表示するcreated_at */
+.my-message-created_at {
+  text-align: right;
+}
+.message-created_at {
+  font-size: 12px;
+  color: #666;
+}
+
+/* メッセージのフォームここから */
 .message-form-container {
   height: 40px;
   line-height: 40px;
@@ -369,11 +405,9 @@ h4 {
   justify-content: space-between;
 }
 
-/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&6 */
 .form-message {
   width: 40vw;
 }
-/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&6 */
 .accept-or-not-hit_on {
   display: flex;
   justify-content: space-between;

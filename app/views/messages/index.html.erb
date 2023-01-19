@@ -10,9 +10,16 @@
     <%# himaとhit＿on %>
     <div class="first-contact">
       <% if @hima.user == current_user %>
-        <div class="my-message">
-          <%= render partial: 'hima_for_message', locals: { hima: @hima } %>
+        <%# 自分のhima %>
+        <div class="my-first-contact">
+          <div class="message-content-first-contact">
+            <%= render partial: 'hima_for_message', locals: { hima: @hima } %>
+          </div>
+          <div class="message-created_at my-message-created_at">
+            <%= @hima.created_at %>
+          </div>
         </div>
+        <%# 相手のhit_on %>
         <div>
           <div>
             <% if @object.images.attached? %>
@@ -21,11 +28,17 @@
               <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
             <% end %>
           </div>
-          <div class="others-message">
-            <%= @hit_on.line %>
+          <div class="others-first-contact">
+            <div class="message-content-first-contact">
+              <%= @hit_on.line %>
+            </div>
+            <div class="message-created_at others-message-created_at">
+              <%= @hit_on.created_at %>
+            </div>
           </div>
         </div>
       <% else %>
+        <%# 相手のhima %>
         <div>
           <div>
             <% if @object.images.attached? %>
@@ -34,12 +47,23 @@
               <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
             <% end %>
           </div>
-          <div class="others-message">
-            <%= render partial: 'hima_for_message', locals: { hima: @hima } %>
+          <div class="others-first-contact">
+            <div class="message-content-first-contact">
+              <%= render partial: 'hima_for_message', locals: { hima: @hima } %>
+            </div>
+            <div class="message-created_at others-message-created_at">
+              <%= @hima.created_at %>
+            </div>
           </div>
         </div>
-        <div class="my-message">
-          <%= @hit_on.line %>
+        <%# 自分のhit_on %>
+        <div class="my-first-contact">
+          <div class="message-content-first-contact">
+            <%= @hit_on.line %>
+          </div>
+          <div class="message-created_at my-message-created_at">
+            <%= @hit_on.created_at %>
+          </div>
         </div>
       <% end %>
     </div>
