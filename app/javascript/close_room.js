@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     closeButton.addEventListener('click', (e) => {
       e.preventDefault();
-      var result = window.confirm(`⚠️トークルームのクローズは取り消せません。\nクローズしてよろしいですか？`);
+      var result = window.confirm(`⚠️トークルームをクローズするとメッセージを送れなくなります。\nトークルームのクローズは取り消せませんが、よろしいですか？`);
       if (result == true) {
         window.location.href = `/rooms/${closeButton.dataset.room_id}/close`;
       };

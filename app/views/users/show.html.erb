@@ -1,4 +1,9 @@
-<%= render partial: 'shared/page_title', locals: { title: "#{@user.nickname}さんの個人ページ" } %>
+<% if @user == current_user %>
+  <%= render partial: 'shared/page_title', locals: { title: "マイページ" } %>
+<% else %>
+  <%= render partial: 'shared/page_title', locals: { title: "#{@user.nickname}さんの個人ページ" } %>
+<% end %>
+
 <div class="upper-profile">
   <div class="profile-summary">
     <h4><%= "#{@user.nickname}さんのプロフィール" %></h4>
@@ -33,22 +38,23 @@
 </div>
 <div class="memo-profile">
   <h4>メモ※あなたにのみ表示されます</h4>
-  <% if @memo == nil  %>
-    <%= link_to "作成", edit_user_memo_path(@user, current_user), class: "edit-button" %>
-    <div class="memo">
-      <span class="cannnot-show">メモはまだありません</span>
-    </div>
-  <% else %>
-    <%= link_to "編集", edit_user_memo_path(@user, current_user), class: "edit-button" %>
-    <div class="memo">
+  <%= link_to "編集", edit_user_memo_path(@user, current_user), class: "edit-button" %>
+  <div class="memo">
+    <% if (@memo == nil) || (@memo.memo == "") %>
+      <span class="cannnot-show">メモはありません</span>
+    <% else %>
       <%= @memo.memo %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 <div class="lower-profile">
   <h4>自己紹介</h4>
   <% if @user == current_user %><%= link_to "編集", edit_user_path, class: "edit-button" %><% end %>
   <div class="introduction">
-    <%= @user.introduction %>
+    <% if @user.introduction == "" %>
+      <span class="cannnot-show">自己紹介はありません</span>
+    <% else %>
+      <%= @user.introduction %>
+    <% end %>
   </div>
 </div>

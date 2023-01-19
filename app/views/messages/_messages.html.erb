@@ -1,10 +1,13 @@
 <div>
   <% if message.user == current_user %>
-    <div class="my-message">
+  <div class="message my-message">
+    <div class="message-content">
       <%= message.content %>
     </div>
+    <div class="message-created_at my-message-created_at"><%= message.created_at %></div>
+  </div>
   <% else %>
-    <div>
+    <div class="message others-message">
       <div>
         <% if message.user.images.attached? %>
           <span><%= link_to image_tag(message.user.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(message.user), target: "_blank", rel: "noreferrer noopener" %></span>
@@ -12,9 +15,10 @@
           <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(message.user), target: "_blank", rel: "noreferrer noopener" %></span>
         <% end %>
       </div>
-      <div class="others-message">
+      <div class="message-content">
         <%= message.content %>
       </div>
+      <div class="message-created_at"><%= message.created_at %></div>
     </div>
   <% end %>
 </div>
