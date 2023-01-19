@@ -9,15 +9,15 @@ document.addEventListener('DOMContentLoaded', function(){
   // それぞれのボタンにクリックされた際のイベントを仕込む
   showFormButtons.forEach(button =>{
     const commandMessageSpace = button.children[1];
-    commandMessageSpace.textContent = 'リクエストを作成する';
+    commandMessageSpace.innerHTML = '<u>リクエストを作成する</u>';
     button.addEventListener('click', (e) => {
       const form = button.parentElement.nextElementSibling.children[0];
       if (form.getAttribute("style") == "display: block;") {
         form.setAttribute("style", "display: none;");
-        commandMessageSpace.textContent = 'リクエストを作成する';
+        commandMessageSpace.innerHTML= '<u>リクエストを作成する</u>';
       } else {
         form.setAttribute("style", "display: block;");
-        commandMessageSpace.textContent = 'フォームを閉じる';
+        commandMessageSpace.innerHTML = 'フォームを閉じる';
       };
     });
   });
@@ -60,8 +60,9 @@ document.addEventListener('DOMContentLoaded', function(){
             <div>
               <span>${hit_on.line}</span>
             </div>
+            <br>
             <div>
-              <a href="/rooms/${hit_on.id}/messages">メッセージへ移動</a>
+              <a href="/rooms/${hit_on.id}/messages" target="_blank" rel="noreferrer noopener">メッセージへ移動</a>
             </div>
           </div>`;
         formContainer.innerHTML = htmlForLine;

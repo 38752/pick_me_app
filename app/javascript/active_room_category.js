@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
   // トークルーム一覧の要素を配列で拾う
   const roomCategoryContainers = document.querySelectorAll('.room-category-container');
-  // hit_onのフォームがないならここで終了。「!」は論理否定演算子。
+  // ないならここで終了。「!」は論理否定演算子。
   if (roomCategoryContainers.length == 0) return null;
 
   // 一個目のカテゴリを強調表示

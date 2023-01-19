@@ -1,0 +1,17 @@
+<div class="test">hit_ons#index</div>
+<div class="rooms-main">
+  <%= render partial: 'shared/page_title', locals: { title: '送信済みリクエスト' } %>
+
+  <div class="rooms-container">
+    <div class="requesting-rooms">
+      <%# リクエスト中 %>
+      <% if @requesting_rooms.any? %>
+        <% @requesting_rooms.each do |room| %>
+          <%= render partial: 'rooms/room_list', locals: { room: room } %>
+        <% end %>
+      <% else %>
+        <div><span class="cannnot-show">リクエスト中のhimaはありません</span></div>
+      <% end %>
+    </div>
+  </div>
+</div>

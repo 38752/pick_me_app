@@ -1,4 +1,15 @@
 class HitOnsController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+  # ↑createの際は、エラー内容をjsonで返すため照合不要
+
+  def index
+    @requesting_rooms = current_user.rooms.where(
+                          room_status_index_id: 10).where(
+                            "room_master_id != ?", current_user.id).includes(
+                              :hit_on, :room_master).order("updated_at DESC"
+                        )
+  end
+
   def create
     hit_on_and_errors = {hit_on: nil, errors: nil}
     hit_on = HitOn.new(hit_on_params)
