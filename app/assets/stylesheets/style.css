@@ -38,9 +38,15 @@ h4 {
   color: black;
 }
 
+.cannnot-show {
+  text-align: center;
+  font-size: 24px;
+  line-height: 36px;
+  color: #777;
+}
 /* ▼/himas/index */
 .hima-unit {
-  width: 60vw;
+  max-width: 60vw;
   background-color: antiquewhite;
   padding: 10px;
   margin: 0 auto 10px;
@@ -111,7 +117,8 @@ h4 {
   width: 500px;
   height: 400px;
   overflow-y: scroll;
-  padding: 0 10px;
+  background-color: cornsilk;
+  padding: 10px 10px 0;
 }
 
 .memo-profile {

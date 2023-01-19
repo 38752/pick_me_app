@@ -20,7 +20,7 @@
           <%= render partial: 'room_list', locals: { room: room } %>
         <% end %>
       <% else %>
-        <div><%= 'トーク中のルームはありません' %></div>
+        <div><span class="cannnot-show">トーク中のルームはありません</span></div>
       <% end %>
     </div>
     <div class="rooms" id="rooms-category_1">
@@ -30,7 +30,7 @@
           <%= render partial: 'room_list', locals: { room: room } %>
         <% end %>
       <% else %>
-        <div><%= '新規リクエストはありません' %></div>
+        <div><span class="cannnot-show">新規リクエストはありません</span></div>
       <% end %>
     </div>
     <div class="rooms" id="rooms-category_2">
