@@ -214,9 +214,13 @@ h4 {
   width: 60vw;
 }
 
+.rooms-unit-nickname-and-updated_at {
+  margin: 20px 90px 20px 20px;
+}
+
 .nickname-room-unit {
   font-size: 24px;
-  margin: 10px 0 20px 20px;
+  padding-right: 60px;
 }
 
 .message-room-unit {

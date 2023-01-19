@@ -8,10 +8,6 @@ document.addEventListener('DOMContentLoaded', function(){
       e.preventDefault();
       var result = window.confirm(`⚠️トークルームのクローズは取り消せません。\nクローズしてよろしいですか？`);
       if (result == true) {
-        // var XHR = new XMLHttpRequest();
-        // XHR.open("GET", `/rooms/${closeButton.dataset.room_id}/close`, false);
-        // // XHR.open("GET", `/rooms/${closeButton.dataset.room_id}/close`);
-        // XHR.send(null);
         window.location.href = `/rooms/${closeButton.dataset.room_id}/close`;
       };
     });

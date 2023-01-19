@@ -8,7 +8,16 @@
     <% end %>
   </div>
   <div class="right-room-unit">
-    <div class="nickname-room-unit"><%= link_to object.nickname, user_path(object), target: "_blank", rel: "noreferrer noopener"  %></div>
-    <div class="message-room-unit"><%= link_to room.hit_on.line, room_messages_path(room), class: "current-message", target: "_blank", rel: "noreferrer noopener" %></div>
+    <div class="rooms-unit-nickname-and-updated_at">
+      <span class="nickname-room-unit"><%= link_to object.nickname, user_path(object), target: "_blank", rel: "noreferrer noopener"  %></span>
+      <span class="updated_at-room-unit"><%= room.updated_at %></span>
+    </div>
+    <div class="message-room-unit">
+      <% if room.messages.any? %>
+        <%= link_to room.messages.last.content, room_messages_path(room), class: "current-message", target: "_blank", rel: "noreferrer noopener" %>
+      <% else %>
+        <%= link_to room.hit_on.line, room_messages_path(room), class: "current-message", target: "_blank", rel: "noreferrer noopener" %>
+      <% end %>
+    </div>
   </div>
 </div>
