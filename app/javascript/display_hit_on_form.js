@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function(){
               <span>${hit_on.line}</span>
             </div>
             <div>
-              <a href="#">メッセージへ移動</a>
+              <a href="/rooms/${hit_on.id}/messages">メッセージへ移動</a>
             </div>
           </div>`;
         formContainer.innerHTML = htmlForLine;

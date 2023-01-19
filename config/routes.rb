@@ -7,4 +7,12 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     resources :memos, only: [:edit, :update]
   end
+  resources :rooms, only: [:index] do
+    member do
+      put 'accept'
+      put 'reject'
+      get 'close'
+    end
+    resources :messages, only: [:index, :create]
+  end
 end

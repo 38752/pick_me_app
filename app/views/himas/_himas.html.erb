@@ -1,32 +1,40 @@
-<div class="hima-unit", id="">
+<div class="hima-unit">
   <h4>
-    <%= "id:#{hima.id}/タイトル:#{hima.title}" %>
+    <%= hima.title %>
   </h4>
+  <br><br>
   <div>
     <% if hima.user.images.attached? %>
-      <span><%= link_to image_tag(hima.user.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(hima.user) %></span>
+      <span><%= link_to image_tag(hima.user.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(hima.user), target: "_blank", rel: "noreferrer noopener" %></span>
     <% else %>
-      <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(hima.user) %></span>
+      <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(hima.user), target: "_blank", rel: "noreferrer noopener" %></span>
     <% end %>
-    <%= link_to hima.user.nickname, user_path(hima.user) %>
+    <%= link_to hima.user.nickname, user_path(hima.user), target: "_blank", rel: "noreferrer noopener" %>
   </div>
+  <br>
   <div>
     <% if hima.location != "" %>
-      <%= hima.location %>
+      <%= "ロケーション:#{hima.location}" %>
     <% else %>
-    <em><%= "場所指定なし" %></em>
+    <%= "場所指定なし" %>
     <% end %>
   </div>
   <div>
     <%= hima.text %>
   </div>
-  <ul><h5>タグ</h5>
-    <% hima.hima_purposes.each do |purpose| %>
-      <% if purpose.flag == 1 %>
-        <li><%= purpose.purpose.name %></li>
-      <% end %>
-    <% end %>
-  </ul>
+  <% if hima.hima_purposes.where(flag: 1).any? %>
+    <div>
+      <h5>タグ</h5>
+      <ul class="purpose-list">
+        <% hima.hima_purposes.each do |purpose| %>
+          <% if purpose.flag == 1 %>
+            <li><%= purpose.purpose.name %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
   <div>
     <% if user_signed_in? %>
       <% if hima.user != current_user %>
@@ -41,7 +49,7 @@
             <%= form_with(model: @hit_on, url: '#', class: "hit_on-form", data: {id: hima.id}, local: true) do |f|  %>
               <div class="field">
                 <div>
-                  <%= f.text_area :line %>
+                  <%= f.text_area :line, class: "hit_on-text_area" %>
                 </div>
               </div>
               <div class="actions">
@@ -56,7 +64,7 @@
             </span>
           </div>
           <div class="hit_on-container">
-            <%#= "ここにhit_onの内容？" %>
+            <%#= "ここにhit_onの内容" %>
           </div>
         <% end %>
       <% else %>

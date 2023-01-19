@@ -6,4 +6,7 @@ class Room < ApplicationRecord
   belongs_to :room_master, class_name: "User"
   has_many   :room_users,  dependent: :destroy
   has_many   :users,       through: :room_users
+
+  # Messageモデルとのアソシエーション
+  has_many :messages, dependent: :destroy
 end

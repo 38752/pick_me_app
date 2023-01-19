@@ -1,0 +1,24 @@
+<h4>
+  <%= hima.title %>
+</h4>
+<br><br>
+<div>
+  <% if hima.location != "" %>
+    <%= "ロケーション:#{hima.location}" %>
+  <% else %>
+  <em><%= "場所指定なし" %></em>
+  <% end %>
+</div>
+<div>
+  <%= hima.text %>
+</div>
+<div>
+  <h5>タグ</h5>
+  <ul class="purpose-list">
+    <% hima.hima_purposes.each do |purpose| %>
+      <% if purpose.flag == 1 %>
+        <li><%= purpose.purpose.name %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

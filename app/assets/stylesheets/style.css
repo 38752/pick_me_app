@@ -40,8 +40,11 @@ h4 {
 
 /* ▼/himas/index */
 .hima-unit {
+  width: 60vw;
   background-color: antiquewhite;
-  margin-bottom: 10px;
+  padding: 10px;
+  margin: 0 auto 10px;
+  line-height: 20px;
 }
 .icon-image {
   height: 50px;
@@ -53,8 +56,16 @@ h4 {
   border-radius: 50%;
 }
 
+.purpose-list {
+  padding-left: 15px;
+}
+
 .hit_on-hand {
   height: 20px;
+}
+
+.hit_on-text_area {
+  width: 70%;
 }
 /* ▲/himas/index */
 
@@ -149,3 +160,137 @@ h4 {
 
 
 /* ▲hit_on-form */
+
+
+/* ▼/rooms */
+.rooms-main {
+  width: 80vw;
+  margin: auto;
+}
+.room-categories {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.room-category-container {
+  width: 20vw;
+  padding: 20px 10px;
+  text-align: center;
+  border-bottom: 2px solid gray;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.room-category {
+  padding: 15px 10%;
+}
+
+#current-category {
+  border-bottom: 2px solid black;
+  font-weight: 600;
+}
+
+.rooms {
+  display: none;
+}
+
+.room-unit {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+.room-icon-image {
+  height: 100px;
+  width: 100px;
+  /* 画像の表示形式を指定するプロパティ */
+  object-fit: cover;
+
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.right-room-unit {
+  width: 60vw;
+}
+
+.rooms-unit-nickname-and-updated_at {
+  margin: 20px 90px 20px 20px;
+}
+
+.nickname-room-unit {
+  font-size: 24px;
+  padding-right: 60px;
+}
+
+.message-room-unit {
+  width: 90%;
+  margin: 10px 0 20px 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ▲/rooms */
+
+
+/* ▼/rooms/:room_id/messages */
+.message-main {
+  width: 60vw;
+  margin: auto;
+
+}
+
+.talk-with {
+  display: flex;
+  justify-content: space-between;
+}
+.messages-container {
+  height: 70vh;
+  padding: 10px;
+  overflow-y: scroll;
+  background-color:cornsilk;
+}
+
+.my-message {
+  width: 30vw;
+  background-color: #fafafa;
+  padding: 10px;
+  margin: 0 0 0 auto;
+  margin-bottom: 10px;
+  word-break: break-all;
+}
+.others-message {
+  width: 30vw;
+  background-color: #fafafa;
+  padding: 10px;
+  margin-bottom: 10px;
+  word-break: break-all;
+}
+
+.message-form-container {
+  height: 60px;
+  line-height: 60px;
+  background-color: #eeeeee;
+  padding: 10px 20px;
+  justify-content: space-between;
+}
+
+.message-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accept-or-not-hit_on {
+  display: flex;
+  justify-content: space-between;
+}
+
+.accept-or-not-buttons {
+  display: flex;
+}
+
+.accept-or-not-button{
+  margin-left: 20px;
+}
+/* ▲/rooms/:room_id/messages */

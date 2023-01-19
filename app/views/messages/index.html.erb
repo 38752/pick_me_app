@@ -1,0 +1,88 @@
+<div class="test">messages#index</div>
+<div class="message-main">
+  <div class="talk-with">
+    <div>
+      <%= link_to("#{@object.nickname}さん", user_path(@object), target: "_blank", rel: "noreferrer noopener") %>とのトークルーム
+    </div>
+    <div>
+      <span>トークルームを<a id="close-room-button" data-room_id="<%= @room.id %>" href="#">クローズ</a>する</span>
+    </div>
+  </div>
+  <div class="messages-container">
+    <a href="#current" id="to-current-button"></a> <%# 最新のメッセージを表示させる(スタート) %>
+    <%# himaとhit＿on %>
+    <div class="first-contact">
+      <% if @hima.user == current_user %>
+        <div class="my-message">
+          <%= render partial: 'hima_for_message', locals: { hima: @hima } %>
+        </div>
+        <div>
+          <div>
+            <% if @object.images.attached? %>
+              <span><%= link_to image_tag(@object.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
+            <% else %>
+              <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
+            <% end %>
+          </div>
+          <div class="others-message">
+            <%= @hit_on.line %>
+          </div>
+        </div>
+      <% else %>
+        <div>
+          <div>
+            <% if @object.images.attached? %>
+              <span><%= link_to image_tag(@object.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
+            <% else %>
+              <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
+            <% end %>
+          </div>
+          <div class="others-message">
+            <%= render partial: 'hima_for_message', locals: { hima: @hima } %>
+          </div>
+        </div>
+        <div class="my-message">
+          <%= @hit_on.line %>
+        </div>
+      <% end %>
+    </div>
+    <%# メッセージここから %>
+    <div class="messages">
+      <% @messages.each do |message| %>
+        <%= render partial: 'messages', locals: { message: message } %>
+      <% end %>
+    </div>
+    <span id="current"></span> <%# 最新のメッセージを表示させる(ゴール) %>
+  </div>
+  <%# フォームここから %>
+  <div class="message-form-container">
+    <% if @room.room_status_index_id == 20 %>
+      <%= form_with model: [@room, @message], class: 'message-form', local: true do |f| %>
+        <div class="message-input">
+          <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
+        </div>
+        <div class="message-input">
+          <%= f.submit '送信', class: 'form-submit' %>
+        </div>
+      <% end %>
+    <% elsif @room.room_status_index_id == 99 %>
+      <div class="why-cannot-send-messages">クローズ済みのトークルームでメッセージを送ることはできません</div>
+    <% elsif (@room.room_status_index_id == 10) && (@room.room_master == current_user) %>
+      <div class="accept-or-not-hit_on">
+        <div class="why-cannot-send-messages"><%= "#{@object.nickname}さんからのリクエストを受け取りますか？" %></div>
+        <div class="accept-or-not-buttons">
+          <%= form_with url: accept_room_path(@room), method: :put, class: "accept-or-not-button", local: true do |f| %>
+            <%= f.submit "はい" %>
+          <% end %>
+          <%= form_with url: reject_room_path(@room), method: :put, class: "accept-or-not-button", local: true do |f| %>
+            <%= f.submit "いいえ" %>
+          <% end %>
+        </div>
+      </div>
+    <% elsif (@room.room_status_index_id == 0) && (@room.room_master == current_user) %>
+      <div class="why-cannot-send-messages">このリクエストは受け取りませんでした</div>
+    <% else %>
+      <div class="why-cannot-send-messages">相手がリクエストを受け取るまでメッセージを送ることはできません</div>
+    <% end %>
+  </div>
+</div>

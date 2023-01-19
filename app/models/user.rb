@@ -29,9 +29,12 @@ class User < ApplicationRecord
   has_many :subjects, through: :reverse_relationships, source: :subjects
 
   # room関連のアソシエーション
-  has_many :rooms, class_name: "Room", foreign_key: "room_master_id", dependent: :destroy
+  has_many :own_rooms, class_name: "Room", foreign_key: "room_master_id", dependent: :destroy
   has_many :room_users, dependent: :destroy
   has_many :rooms, through: :room_users, dependent: :destroy
+
+  # Messageモデルとのアソシエーション
+  has_many :messages, dependent: :destroy
 
   # バリデーション
   validates :nickname, presence: true
