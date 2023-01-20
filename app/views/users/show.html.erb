@@ -6,8 +6,10 @@
 
 <div class="upper-profile">
   <div class="profile-summary">
+    <div class="edit-button-line">
     <h4><%= "#{@user.nickname}さんのプロフィール" %></h4>
     <% if @user == current_user %><%= link_to "編集", edit_user_path, class: "edit-button" %><% end %>
+    </div>
     <div class="images-container">
       <% if @user.images.attached? %>
         <% @user.images.each do |image| %>
@@ -21,8 +23,10 @@
     <div><%= "性別：#{@user.sex.profile}" %></div>
   </div>
   <div>
-    <h4><%= "#{@user.nickname}さんの最近のhima" %></h4>
+    <div class="edit-button-line">
+    <h4><%= "最近のhima" %></h4>
     <% if @user == current_user %><%= link_to "新規投稿", new_hima_path, class: "edit-button" %><% end %>
+    </div>
     <div class="current-himas-container">
       <% if @user.himas.any? %>
         <% @user.himas.order("created_at DESC").each do |hima| %>
@@ -37,8 +41,10 @@
   </div>
 </div>
 <div class="memo-profile">
-  <h4>メモ※あなたにのみ表示されます</h4>
+  <div class="edit-button-line">
+  <h4>メモ*あなたにのみ表示されます</h4>
   <%= link_to "編集", edit_user_memo_path(@user, current_user), class: "edit-button" %>
+  </div>
   <div class="memo">
     <% if (@memo == nil) || (@memo.memo == "") %>
       <span class="cannnot-show">メモはありません</span>
@@ -48,8 +54,10 @@
   </div>
 </div>
 <div class="lower-profile">
+  <div class="edit-button-line">
   <h4>自己紹介</h4>
   <% if @user == current_user %><%= link_to "編集", edit_user_path, class: "edit-button" %><% end %>
+  </div>
   <div class="introduction">
     <% if @user.introduction == "" %>
       <span class="cannnot-show">自己紹介はありません</span>

@@ -1,5 +1,5 @@
 <%= render partial: 'shared/page_title', locals: { title: "Sign up" } %>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'registration-main', local: true) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'registration-main ', local: true) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -27,13 +27,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :how_old_id %><br />
+    <%= f.label :how_old_id, '年齢' %><br />
     <div class="caution">*この情報は他ユーザーに公開されます</div>
     <%= f.collection_select(:how_old_id, HowOld.all, :id, :registration, {}, {class:"select-box"}) %>
   </div>
 
   <div class="field">
-    <%= f.label :sex_id %><br />
+    <%= f.label :sex_id, '性別' %><br />
     <div class="caution">*この情報は他ユーザーに公開されます</div>
     <%= f.collection_select(:sex_id, Sex.all, :id, :registration, {}, {class:"select-box"}) %>
   </div>
@@ -41,6 +41,7 @@
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <br />
+  <%= render "devise/shared/links" %>
+<% end %>

@@ -15,22 +15,22 @@
       <% if user_signed_in? %>
         <div class="user_nav">
           <ul class="user__info">
-            <li class="header-menu-string mouseover-weightier"><%= link_to "#{current_user.nickname}さん", user_path(current_user) %></li>
-            <li class="header-menu-string mouseover-weightier"><%= link_to "新規投稿", new_hima_path %></li>
+            <li class="header-menu-string"><%= link_to "#{current_user.nickname}さん", user_path(current_user), class: "mouseover-weightier" %></li>
+            <li class="header-menu-string"><%= link_to "新規投稿", new_hima_path, class: "mouseover-weightier" %></li>
             <li class="header-menu-image"><%= image_tag('hamburger_menu.png', class: "menu-button", id: "menu-button") %></li>
           </ul>
           <ul class="more-user__info" id="pull-down">
-            <li class="more-menu-string mouseover-weightier"><%= link_to "マイページ", user_path(current_user) %></li>
-            <li class="more-menu-string mouseover-weightier"><%= link_to "トークルーム一覧", rooms_path %></li>
-            <li class="more-menu-string mouseover-weightier"><%= link_to "リクエスト中", hit_ons_path %></li>
-            <li class="more-menu-string mouseover-weightier"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <li class="more-menu-string"><%= link_to "マイページ", user_path(current_user), class: "mouseover-weightier"%></li>
+            <li class="more-menu-string"><%= link_to "トークルーム一覧", rooms_path, class: "mouseover-weightier" %></li>
+            <li class="more-menu-string"><%= link_to "リクエスト中", hit_ons_path, class: "mouseover-weightier" %></li>
+            <li class="more-menu-string"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "mouseover-weightier" %></li>
           </ul>
         </div>
       <% else %>
         <div class="not_user_nav">
           <ul class="user__info">
-            <li class="header-menu-string mouseover-weightier"><%= link_to "ログイン", new_user_session_path, class: "post" %></li>
-            <li class="header-menu-string mouseover-weightier"><%= link_to "新規登録", new_user_registration_path, class: "post" %></li>
+            <li class="header-menu-string"><%= link_to "ログイン", new_user_session_path, class: "post mouseover-weightier" %></li>
+            <li class="header-menu-string"><%= link_to "新規登録", new_user_registration_path, class: "post mouseover-weightier" %></li>
           </ul>
         </div>
       <% end %>

@@ -1,5 +1,5 @@
 <%= render partial: 'shared/page_title', locals: { title: "新規投稿" } %>
-<%= form_with model: @hima_form, url: himas_path, class: "new-hima-form", local: true do |f| %>
+<%= form_with model: @hima_form, url: himas_path, class: "general-form-frame", local: true do |f| %>
   <%= render 'error_messages', model: @hima_form %>
   <div class="field">
    <%= f.label :title, "タイトル（必須）" %>
@@ -31,7 +31,7 @@
   <h2>公開範囲</h2>
   <div class="field">
     <div>
-      <%= f.collection_select :open_range_id, OpenRange.all, :id, :name %>
+      <%= f.collection_select :open_range_id, OpenRange.all, :id, :name,{} ,{ class: 'select-box' } %>
     </div>
   </div>
   <br>

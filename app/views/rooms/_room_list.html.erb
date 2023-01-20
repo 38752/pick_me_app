@@ -10,7 +10,7 @@
   <div class="right-room-unit">
     <div class="rooms-unit-nickname-and-updated_at">
       <span class="nickname-room-unit"><%= link_to object.nickname, user_path(object), target: "_blank", rel: "noreferrer noopener"  %></span>
-      <span class="updated_at-room-unit"><%= room.updated_at %></span>
+      <span class="updated_at-room-unit"><%= l room.updated_at, format: :short  %></span>
     </div>
     <div class="message-room-unit">
       <% if room.messages.any? %>

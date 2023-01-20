@@ -33,5 +33,11 @@ en:
   hello: "Hello world"
   errors:
     messages:
-      too_many_files: No more than 3 images can be attached
-      too_few_files: At least 1 image should be attached
+      too_many_files: of more than 3 cannot be attached
+      too_few_files: should be attached At least 1
+
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S" # 使ってない
+      short: "%Y/%m/%d %H:%M"
+      shorter: "%m/%d %H:%M" # 使ってない
