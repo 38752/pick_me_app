@@ -67,6 +67,12 @@
         </div>
       <% end %>
     </div>
+    <%# リクエスト承認メッセージここから %>
+    <% if (@room.room_status_index_id != 10) && (@room.room_status_index_id != 0) %>
+      <div class="accepted-notice-container">
+        <span class="accepted-notice"><%= @room.room_master.nickname %>さんがリクエストを受け取りました！</span>
+      </div>
+    <% end %>
     <%# メッセージここから %>
     <div class="messages">
       <% @messages.each do |message| %>
