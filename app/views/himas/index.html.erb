@@ -1,4 +1,6 @@
 <%= render partial: 'shared/page_title', locals: { title: "hima一覧" } %>
-<% @himas.each do |hima| %>
-  <%= render partial: 'himas', locals: { hima: hima } %>
-<% end %>
+<div class="himas-main">
+  <% @himas.each do |hima| %>
+    <%= render partial: 'himas', locals: { hima: hima } %>
+  <% end %>
+</div>

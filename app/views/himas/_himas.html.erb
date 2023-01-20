@@ -6,20 +6,21 @@
   <br><br>
   <div class="hima-user-info">
     <% if hima.user.images.attached? %>
-      <span><%= link_to image_tag(hima.user.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(hima.user), target: "_blank", rel: "noreferrer noopener" %></span>
+      <span><%= link_to image_tag(hima.user.images[0].variant( resize: "200x200>" ).processed, class: "icon-image hima-icon-image"), user_path(hima.user), target: "_blank", rel: "noreferrer noopener" %></span>
     <% else %>
-      <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(hima.user), target: "_blank", rel: "noreferrer noopener" %></span>
+      <span><%= link_to image_tag('new_user_icon.png', class: "icon-image hima-icon-image"), user_path(hima.user), target: "_blank", rel: "noreferrer noopener" %></span>
     <% end %>
     <%= link_to hima.user.nickname, user_path(hima.user), class: "hima-user-name", target: "_blank", rel: "noreferrer noopener" %>
   </div>
   <br>
   <div>
     <% if hima.location != "" %>
-      <%= "ロケーション:#{hima.location}" %>
+      <%= "ロケーション：#{hima.location}" %>
     <% else %>
     <%= "場所指定なし" %>
     <% end %>
   </div>
+  <br>
   <div>
     <%= hima.text %>
   </div>
