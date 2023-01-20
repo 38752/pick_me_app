@@ -246,8 +246,8 @@ add_index :hit_ons, [:user_id, :hima_id], unique: true
 
 
 # 画面遷移図
-[![画面遷移図](/app/assets/images/screen_transition_diagram.png)
-<img src="https://gyazo.com/f86ead538299fb09d0b103d3e6f21c81" alt="画面遷移図" title="サンプル">]
+![画面遷移図](https://gyazo.com/f86ead538299fb09d0b103d3e6f21c81/raw)
+
 # 開発環境
 - フレームワーク
   - Ruby on Rails
