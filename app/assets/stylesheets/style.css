@@ -153,9 +153,9 @@ h4 {
 
 /* ▼/himas/new */
 .new-hima-form {
-  padding: 10px;
+  width: 40vw;
   margin: auto;
-  width: 60vw;
+  padding: 10px;
   background-color: antiquewhite;
 }
 /* ▲/himas/new */
@@ -371,9 +371,9 @@ h4 {
 .my-message {
   margin: 0 0 0 auto;
 }
-.others-message {
+/* .others-message {
 
-}
+} */
 
 .message-content {
   background-color: antiquewhite;

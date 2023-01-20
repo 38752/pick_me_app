@@ -37,7 +37,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   # バリデーション
-  validates :nickname, presence: true
+  validates :nickname, length: { minimum: 1, maximum: 18 }
 
   validates :images, attached_file_number: { maximum: 3 }
   validates :images, blob: { content_type: :image, size_range: (5.kilobytes)..(1.megabytes) }
