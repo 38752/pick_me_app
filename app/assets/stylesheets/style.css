@@ -405,6 +405,21 @@ h4 {
   color: #666;
 }
 
+
+/* 「受け取りました！」通知 */
+.accepted-notice-container {
+  width: 60%;
+  margin: 30px auto;
+}
+
+.accepted-notice {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 18px;
+  background-color:gold;
+  color: #fff;
+}
 /* メッセージのフォームここから */
 .message-form-container {
   height: 40px;
