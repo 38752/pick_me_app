@@ -1,9 +1,10 @@
 <%= render partial: 'shared/page_title', locals: { title: "#{@memo.object.nickname}さんへのメモ編集" } %>
 <%= @memo.memo %>
-<%= form_with(model: @memo, url: user_memo_path(@memo.object, @memo.subject), class: 'form', local: true) do |f| %>
+<%= form_with(model: @memo, url: user_memo_path(@memo.object, @memo.subject), class: 'general-form-frame', local: true) do |f| %>
   <div class="field">
-    <%= f.label(:memo, 'メモ※この情報は他ユーザーには公開されません') %><br />
-    <%= f.text_area(:memo) %>
+    <%= f.label(:memo, 'メモ') %>
+    <span class="caution">*この情報は他ユーザーには公開されません</span><br />
+    <%= f.text_area(:memo, class: "thirty-vw-form") %>
   </div>
 
   <div class="actions">

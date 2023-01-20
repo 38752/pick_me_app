@@ -2,7 +2,7 @@
   <h4>
     <%= hima.title %>
   </h4>
-  <span class="hima-created_at"><%= hima.created_at %></span>
+  <span class="hima-created_at"><%= l hima.created_at, format: :short %></span>
   <br><br>
   <div class="hima-user-info">
     <% if hima.user.images.attached? %>

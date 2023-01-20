@@ -52,14 +52,20 @@ h4 {
   right: 3vw;
 }
 .more-menu-string {
+  margin-bottom: 10px;
+}
+
+.mouseover-weightier {
   padding: 5px;
-  margin-bottom: 5px;
 }
 /* ▲ヘッダー */
 
+/* ▼フッター */
 .footer {
   height: 50px;
 }
+/* ▲フッター */
+
 .test {
   font-size: 40px;
   color: black;
@@ -77,7 +83,6 @@ h4 {
   text-align: center;
   border-bottom: 2px solid black;
   font-size: 30px;
-  /* font-weight: 600; */
   letter-spacing: 2px;
 }
 
@@ -87,10 +92,30 @@ h4 {
 /* ▲ページタイトル */
 
 /* ▲フォーム関連 */
+.general-form-frame {
+  width: 40vw;
+  margin: auto;
+  padding: 10px;
+  background-color: antiquewhite;
+}
+.new_user {
+  width: 40vw;
+  margin: auto;
+  padding: 10px;
+  background-color: antiquewhite;
+}
+
 .thirty-vw-form {
   min-width: 30vw;
   max-width: 30vw;
 }
+.select-box {
+  margin: 10px 20px;
+}
+.caution {
+  font-size: 12px;
+}
+
 /* ▲フォーム関連 */
 
 /* ▼表示できないメッセージのspan要素 */
@@ -152,18 +177,17 @@ h4 {
 /* ▲/himas/index */
 
 /* ▼/himas/new */
-.new-hima-form {
-  width: 40vw;
-  margin: auto;
-  padding: 10px;
-  background-color: antiquewhite;
-}
+
 /* ▲/himas/new */
 
 /* ▼/users/:id */
+.edit-button-line {
+  line-height: 30px;
+}
 .edit-button {
   padding: 5px;
   border: 1px solid black;
+  border-radius: 3px;
 }
 
 .upper-profile {
@@ -232,15 +256,6 @@ h4 {
 /* ▲/users/:id/edit */
 
 /* ▼/users/sign_up */
-.new_user {
-  padding-top: 50px;
-}
-.caution {
-  font-size: 12px;
-}
-.select-box {
-  margin: 10px 20px;
-}
 
 /* ▲/users/sign_up */
 
@@ -290,7 +305,6 @@ h4 {
 
 .room-unit {
   display: flex;
-  justify-content: left;
   margin-bottom: 20px;
 }
 .room-icon-image {
@@ -308,7 +322,7 @@ h4 {
 }
 
 .rooms-unit-nickname-and-updated_at {
-  margin: 20px 90px 20px 20px;
+  margin: 20px 0 20px 20px;
 }
 
 .nickname-room-unit {

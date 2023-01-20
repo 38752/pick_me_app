@@ -16,7 +16,7 @@
             <%= render partial: 'hima_for_message', locals: { hima: @hima } %>
           </div>
           <div class="message-created_at my-message-created_at">
-            <%= @hima.created_at %>
+            <%= l @hima.created_at, format: :short %>
           </div>
         </div>
         <%# 相手のhit_on %>
@@ -33,7 +33,7 @@
               <%= @hit_on.line %>
             </div>
             <div class="message-created_at others-message-created_at">
-              <%= @hit_on.created_at %>
+              <%= l @hit_on.created_at, format: :short %>
             </div>
           </div>
         </div>
@@ -52,7 +52,7 @@
               <%= render partial: 'hima_for_message', locals: { hima: @hima } %>
             </div>
             <div class="message-created_at others-message-created_at">
-              <%= @hima.created_at %>
+              <%= l @hima.created_at, format: :short %>
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@
             <%= @hit_on.line %>
           </div>
           <div class="message-created_at my-message-created_at">
-            <%= @hit_on.created_at %>
+            <%= l @hit_on.created_at, format: :short %>
           </div>
         </div>
       <% end %>
