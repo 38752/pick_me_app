@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
   end
 
   def set_extras
-    @messages = @room.messages
+    @messages = @room.messages.order("created_at ASC")
     @object = @room.users.find_by("user_id != ?", current_user.id)
     @hit_on = @room.hit_on
     @hima = @hit_on.hima

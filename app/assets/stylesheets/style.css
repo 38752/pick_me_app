@@ -62,7 +62,7 @@ h4 {
 
 /* ▼フッター */
 .footer {
-  height: 50px;
+  height: 35px;
 }
 /* ▲フッター */
 
@@ -127,13 +127,25 @@ h4 {
 }
 /* ▲表示できないメッセージのspan要素 */
 
+/* ▼アイコン(丸で切り取られた画像)関連 */
+.icon-image {
+  background-color: #fafafa;
+}
+/* ▲アイコン(丸で切り取られた画像)関連 */
+
 /* --------------------------------- */
 /* ▼/himas/index */
+.himas-main {
+  width: 50vw;
+  padding: 15px 15px 5px;
+  background-color: cornsilk;
+  margin: 0 auto ;
+}
 .hima-unit {
-  max-width: 60vw;
+  max-width: 100%;
   background-color: antiquewhite;
   padding: 10px;
-  margin: 0 auto 10px;
+  margin: 0 0 10px;
   line-height: 20px;
 }
 
@@ -152,7 +164,7 @@ h4 {
   left: 60px;
 }
 
-.icon-image {
+.hima-icon-image {
   height: 50px;
   width: 50px;
   /* 画像の表示形式を指定するプロパティ */
