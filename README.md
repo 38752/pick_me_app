@@ -47,7 +47,7 @@ https://pickmeapp.onrender.com/
 #### 他ユーザーの「hima」に反応するユーザー視点
 1. 新規登録を行う
 2. 他ユーザーが投稿した「hima」の中で、気に入ったものを選ぶ
-3. リクエストを送る(「スプラトゥーンハマってるのでやりましょう！」、「〇〇の美味しい店知ってます。」等)と新規トークルームが作成される
+3. リクエストを送る(「スプラトゥーンにハマってるのでやりましょう！」、「〇〇の美味しい店知ってます。」等)と新規トークルームが作成される
 <!-- フォロー機能もあるが、現状使ってない -->
 4. リクエストが気に入られた場合、トークルームでメッセージを送れるようになる
 5. 目的に沿って暇をつぶす
@@ -80,7 +80,7 @@ https://pickmeapp.onrender.com/
 
 # 洗い出した要件
 https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7PVc/edit#gid=982722306
-
+!
 # 実装した機能についての画像やGIFおよびその説明
 - マイページを閲覧することができる
 ![マイページ閲覧](https://gyazo.com/db272dfbde173ccfbebb443e72c1a8bd/raw)
@@ -101,7 +101,7 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
 ![「hima」投稿](https://gyazo.com/b36d8ef0af66c8fbca4f0b923d66263c/raw)
 <br>
 - 投稿された「hima」にリクエストを送ることができる
-！[リクエスト送信](https://gyazo.com/0f3ac42c47a0992da9fd61633b9b852e/raw)
+![リクエスト送信](https://gyazo.com/0f3ac42c47a0992da9fd61633b9b852e/raw)
 <br>
 - 自身の送ったリクエストを確認することができる
 ![リクエスト中確認](https://gyazo.com/e25ff625bf45e7646b5d4f67fd208fcc/raw)
@@ -113,10 +113,13 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
 ![個別トークルーム](https://gyazo.com/4b84b4e88a59d71a7c06d1803d32fb5a/raw)
 <br>
 - 相手からきたリクエストを受け取ることができる
+![リクエスト承認](https://gyazo.com/da0ecbf64a0089e2f2751bf69fc8f244/raw)
 <br>
 - メッセージを送ることができる
+![メッセージ送信](https://gyazo.com/891d4068cfaf86f31b45bc463755ce55/raw)
 <br>
 - トークルームをクローズすることができる
+![ルームクローズ](https://gyazo.com/0020f86f7733aef817128fc5ddba11ac/raw)
 
 # 実装予定の機能
 - テストの実施
