@@ -80,46 +80,8 @@ https://pickmeapp.onrender.com/
 
 # 洗い出した要件
 https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7PVc/edit#gid=982722306
-!
+
 # 実装した機能についての画像やGIFおよびその説明
-- マイページを閲覧することができる
-![マイページ閲覧](https://gyazo.com/db272dfbde173ccfbebb443e72c1a8bd/raw)
-<br>
-- マイページを編集することができる
-![マイページ編集](https://gyazo.com/7f66ac35d79e2a61450662bf9f2e3f2c/raw)
-<br>
-- 他のユーザーのページを閲覧することができる
-![他ユーザーページ閲覧](https://gyazo.com/5f075c918128b08746f56397d3914876/raw)
-<br>
-- ユーザーにメモを残すことができる
-![メモ](https://gyazo.com/f545c2c03b1ccd96760608f03b17acb8/raw)
-<br>
-- 新規「hima」ページに遷移することができる
-![新規「hima」遷移](https://gyazo.com/0e8e2c0be2598f786b8cec093c5a03a9/raw)
-<br>
-- 「hima」を投稿することができる
-![「hima」投稿](https://gyazo.com/b36d8ef0af66c8fbca4f0b923d66263c/raw)
-<br>
-- 投稿された「hima」にリクエストを送ることができる
-![リクエスト送信](https://gyazo.com/0f3ac42c47a0992da9fd61633b9b852e/raw)
-<br>
-- 自身の送ったリクエストを確認することができる
-![リクエスト中確認](https://gyazo.com/e25ff625bf45e7646b5d4f67fd208fcc/raw)
-<br>
-- 相手からきたリクエストを確認することができる
-![リクエスト一覧](https://gyazo.com/80b1749506c35c8e169120b28f3d97a8/raw)
-<br>
-- トークルームを確認することができる
-![個別トークルーム](https://gyazo.com/4b84b4e88a59d71a7c06d1803d32fb5a/raw)
-<br>
-- 相手からきたリクエストを受け取ることができる
-![リクエスト承認](https://gyazo.com/da0ecbf64a0089e2f2751bf69fc8f244/raw)
-<br>
-- メッセージを送ることができる
-![メッセージ送信](https://gyazo.com/891d4068cfaf86f31b45bc463755ce55/raw)
-<br>
-- トークルームをクローズすることができる
-![ルームクローズ](https://gyazo.com/0020f86f7733aef817128fc5ddba11ac/raw)
 
 # 実装予定の機能
 - テストの実施
