@@ -130,7 +130,25 @@ h4 {
 /* ▼アイコン(丸で切り取られた画像)関連 */
 .icon-image {
   background-color: #fafafa;
+  /* 画像の表示形式を指定するプロパティ */
+  object-fit: cover;
+
+  border: 1px solid black;
+  border-radius: 50%;
 }
+.hima-icon-image {
+  height: 50px;
+  width: 50px;
+}
+.room-icon-image {
+  height: 100px;
+  width: 100px;
+}
+.message-icon-image {
+  height: 50px;
+  width: 50px;
+}
+
 /* ▲アイコン(丸で切り取られた画像)関連 */
 
 /* --------------------------------- */
@@ -162,16 +180,6 @@ h4 {
   position: absolute;
   top: 25px;
   left: 60px;
-}
-
-.hima-icon-image {
-  height: 50px;
-  width: 50px;
-  /* 画像の表示形式を指定するプロパティ */
-  object-fit: cover;
-
-  border: 1px solid black;
-  border-radius: 50%;
 }
 
 .purpose-list {
@@ -318,15 +326,6 @@ h4 {
 .room-unit {
   display: flex;
   margin-bottom: 20px;
-}
-.room-icon-image {
-  height: 100px;
-  width: 100px;
-  /* 画像の表示形式を指定するプロパティ */
-  object-fit: cover;
-
-  border: 1px solid black;
-  border-radius: 50%;
 }
 
 .right-room-unit {

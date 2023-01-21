@@ -23,9 +23,9 @@
         <div>
           <div>
             <% if @object.images.attached? %>
-              <span><%= link_to image_tag(@object.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
+              <span><%= link_to image_tag(@object.images[0].variant( resize: "200x200>" ).processed, class: "icon-image message-icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
             <% else %>
-              <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
+              <span><%= link_to image_tag('new_user_icon.png', class: "icon-image message-icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
             <% end %>
           </div>
           <div class="others-first-contact">
@@ -42,9 +42,9 @@
         <div>
           <div>
             <% if @object.images.attached? %>
-              <span><%= link_to image_tag(@object.images[0].variant( resize: "200x200>" ).processed, class: "icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
+              <span><%= link_to image_tag(@object.images[0].variant( resize: "200x200>" ).processed, class: "icon-image message-icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
             <% else %>
-              <span><%= link_to image_tag('new_user_icon.png', class: "icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
+              <span><%= link_to image_tag('new_user_icon.png', class: "icon-image message-icon-image"), user_path(@object), target: "_blank", rel: "noreferrer noopener" %></span>
             <% end %>
           </div>
           <div class="others-first-contact">
