@@ -123,6 +123,8 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
 
 # 実装予定の機能
 - テストの実施
+- Bootstrapを用いたレイアウト・UIの向上
+- 自身のhimaの削除機能
 - 自身のhimaの公開範囲指定機能
 - フォロー機能(relationships テーブルの処理)の充実
 - himaのソート機能
