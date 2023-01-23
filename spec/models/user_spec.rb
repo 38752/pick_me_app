@@ -119,10 +119,4 @@ RSpec.describe User, type: :model do
       end
     end
   end
-
-  private
-
-  def big
-    binding.pry
-  end
 end
