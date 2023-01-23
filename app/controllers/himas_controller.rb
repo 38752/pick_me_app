@@ -2,7 +2,15 @@ class HimasController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :hima_owner?, only: [:edit, :update]
   def index
-    @himas = Hima.all.includes(:hima_purposes, :user, :hit_ons).order("created_at DESC")
+    @visible_open_range_ids = []
+    OpenRange.all.each do |open_range|
+      @visible_open_range_ids << open_range.id
+    end
+    for invisible_open_range_id in 90..99 do
+      @visible_open_range_ids.delete(invisible_open_range_id)
+    end
+
+    @himas = Hima.where(open_range_id: @visible_open_range_ids).includes(:hima_purposes, :user, :hit_ons).order("created_at DESC")
     @hit_on = HitOn.new
   end
 
