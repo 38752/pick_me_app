@@ -8,7 +8,6 @@ pick me
 トークを通して立てた予定や、雑談などで暇をつぶすことができる。
 
 # URL
-<a href="https://pickmeapp.onrender.com/" target="_blank">https://pickmeapp.onrender.com/</a><br>
 https://pickmeapp.onrender.com/<br>
 ID：edwin<br>
 PASS：1947
@@ -314,4 +313,6 @@ yarn install
 ```
 
 # 工夫したポイント
+#### hima新規投稿フォームの実装(フォームオブジェクト)
+#### 
 <!-- これでコメントアウト -->
