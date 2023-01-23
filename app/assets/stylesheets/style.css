@@ -457,6 +457,7 @@ h4 {
 
 .form-message {
   width: 40vw;
+  font-size: 20px;
 }
 .accept-or-not-hit_on {
   display: flex;

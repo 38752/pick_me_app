@@ -30,13 +30,13 @@
     <% if @user == current_user %><%= link_to "新規投稿", new_hima_path, class: "edit-button btn btn-secondary" %><% end %>
     </div>
     <div class="current-himas-container">
-      <% if @user.himas.any? %>
-        <% @user.himas.order("created_at DESC").each do |hima| %>
+      <% if @himas.any? %>
+        <% @himas.order("created_at DESC").each do |hima| %>
           <%= render partial: 'himas/himas', locals: { hima: hima } %>
         <% end %>
       <% else %>
         <div>
-          <span class="cannnot-show">投稿はありません</span>
+          <span class="cannnot-show">最近の投稿はありません</span>
         </div>
       <% end %>
     </div>
@@ -61,7 +61,7 @@
   <% if @user == current_user %><%= link_to "編集", edit_user_path, class: "edit-button btn btn-secondary" %><% end %>
   </div>
   <div class="introduction">
-    <% if @user.introduction == "" %>
+    <% if (@user.introduction == nil) || (@user.introduction == "") %>
       <span class="cannnot-show">自己紹介はありません</span>
     <% else %>
       <%= @user.introduction %>

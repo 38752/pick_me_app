@@ -1,6 +1,12 @@
 <%= render partial: 'shared/page_title', locals: { title: "hima一覧" } %>
 <div class="himas-main">
-  <% @himas.each do |hima| %>
-    <%= render partial: 'himas', locals: { hima: hima } %>
+  <% if @himas.any? %>
+    <% @himas.each do |hima| %>
+      <%= render partial: 'himas', locals: { hima: hima } %>
+    <% end %>
+  <% else %>
+    <div>
+      <span class="cannnot-show">表示できる投稿はありません</span>
+    </div>
   <% end %>
 </div>
