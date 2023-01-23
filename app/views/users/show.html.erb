@@ -7,8 +7,8 @@
 <div class="upper-profile">
   <div class="profile-summary">
     <div class="edit-button-line">
-    <h4><%= "#{@user.nickname}さんのプロフィール" %></h4>
-    <% if @user == current_user %><%= link_to "編集", edit_user_path, class: "edit-button" %><% end %>
+    <h3><%= "#{@user.nickname}さんのプロフィール" %></h3>
+    <% if @user == current_user %><%= link_to "編集", edit_user_path, class: "edit-button btn btn-secondary" %><% end %>
     </div>
     <div class="images-container">
       <% if @user.images.attached? %>
@@ -19,22 +19,24 @@
         <%= image_tag("no_image.jpg", class: "profile-image") %>
       <% end %>
     </div>
-    <div><%= "年齢：#{@user.how_old.profile}" %></div>
-    <div><%= "性別：#{@user.sex.profile}" %></div>
+    <div class="profile-statuses">
+      <div class="profile-status"><%= "年齢：#{@user.how_old.profile}" %></div>
+      <div class="profile-status"><%= "性別：#{@user.sex.profile}" %></div>
+    </div>
   </div>
   <div>
     <div class="edit-button-line">
-    <h4><%= "最近のhima" %></h4>
-    <% if @user == current_user %><%= link_to "新規投稿", new_hima_path, class: "edit-button" %><% end %>
+    <h3><%= "最近のhima" %></h3>
+    <% if @user == current_user %><%= link_to "新規投稿", new_hima_path, class: "edit-button btn btn-secondary" %><% end %>
     </div>
     <div class="current-himas-container">
-      <% if @user.himas.any? %>
-        <% @user.himas.order("created_at DESC").each do |hima| %>
+      <% if @himas.any? %>
+        <% @himas.order("created_at DESC").each do |hima| %>
           <%= render partial: 'himas/himas', locals: { hima: hima } %>
         <% end %>
       <% else %>
         <div>
-          <span class="cannnot-show">投稿はありません</span>
+          <span class="cannnot-show">最近の投稿はありません</span>
         </div>
       <% end %>
     </div>
@@ -42,8 +44,8 @@
 </div>
 <div class="memo-profile">
   <div class="edit-button-line">
-  <h4>メモ*あなたにのみ表示されます</h4>
-  <%= link_to "編集", edit_user_memo_path(@user, current_user), class: "edit-button" %>
+  <h3>メモ*あなたにのみ表示されます</h3>
+  <%= link_to "編集", edit_user_memo_path(@user, current_user), class: "edit-button btn btn-secondary" %>
   </div>
   <div class="memo">
     <% if (@memo == nil) || (@memo.memo == "") %>
@@ -55,11 +57,11 @@
 </div>
 <div class="lower-profile">
   <div class="edit-button-line">
-  <h4>自己紹介</h4>
-  <% if @user == current_user %><%= link_to "編集", edit_user_path, class: "edit-button" %><% end %>
+  <h3>自己紹介</h3>
+  <% if @user == current_user %><%= link_to "編集", edit_user_path, class: "edit-button btn btn-secondary" %><% end %>
   </div>
   <div class="introduction">
-    <% if @user.introduction == "" %>
+    <% if (@user.introduction == nil) || (@user.introduction == "") %>
       <span class="cannnot-show">自己紹介はありません</span>
     <% else %>
       <%= @user.introduction %>

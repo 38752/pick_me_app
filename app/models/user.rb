@@ -40,6 +40,6 @@ class User < ApplicationRecord
   validates :nickname, length: { minimum: 1, maximum: 15 }
 
   validates :images, attached_file_number: { maximum: 3 }
-  validates :images, blob: { content_type: :image, size_range: (5.kilobytes)..(1.megabytes) }
+  validates :images, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'], size_range: (5.kilobytes)..(1.megabytes) }
 
 end

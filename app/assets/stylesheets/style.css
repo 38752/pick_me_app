@@ -1,5 +1,5 @@
 .pillow {
-  height: 80px;
+  height: 54px;
 }
 
 a {
@@ -8,13 +8,18 @@ a {
   
 }
 
+h3 {
+  display: inline;
+}
+
 h4 {
   display: inline;
 }
 
 /* ▼ヘッダー */
 .header {
-  padding: 10px 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   border-bottom: 1px solid #D8D8D8;
   background-color: #fefefe;
   position: fixed;
@@ -73,17 +78,18 @@ h4 {
 
 /* ▼ページタイトル */
 .page-title-main {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .page-title-container {
   max-width: 90vw;
-  padding: 20px 10px;
+  padding: 13px 10px;
   margin: auto;
   text-align: center;
   border-bottom: 2px solid black;
-  font-size: 30px;
+  font-size: 40px;
   letter-spacing: 2px;
+  font-weight: 500  ;
 }
 
 .page-requesting-room-category {
@@ -201,13 +207,11 @@ h4 {
 /* ▲/himas/new */
 
 /* ▼/users/:id */
-.edit-button-line {
-  line-height: 30px;
-}
 .edit-button {
-  padding: 5px;
-  border: 1px solid black;
-  border-radius: 3px;
+  padding: 3px 4.8px;
+  margin-left: 10px;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
 .upper-profile {
@@ -240,6 +244,13 @@ h4 {
   background-color: beige;
   margin: 10px;
   flex-shrink: 0;
+}
+
+.profile-statuses {
+  margin-top: 20px;
+  margin-left: 20px;
+  line-height: 30px;
+  font-size: 18px;
 }
 
 .current-himas-container {
@@ -433,7 +444,6 @@ h4 {
 }
 /* メッセージのフォームここから */
 .message-form-container {
-  height: 40px;
   line-height: 40px;
   background-color: #eeeeee;
   padding: 10px 20px;
@@ -447,6 +457,7 @@ h4 {
 
 .form-message {
   width: 40vw;
+  font-size: 20px;
 }
 .accept-or-not-hit_on {
   display: flex;

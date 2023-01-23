@@ -6,4 +6,8 @@ class Hima < ApplicationRecord
 
   has_many :hit_ons
 
+
+  # バリデーション
+  validates :title, presence: true
+  validates :text,  presence: true
 end

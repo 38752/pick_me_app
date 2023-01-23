@@ -32,7 +32,9 @@ class HitOnsController < ApplicationController
   private
 
   def hit_on_params
-    hima_owner_id = Hima.find(params[:hima_id]).user.id
-    params.require(:hit_on).permit(:line).merge(hima_id: params[:hima_id], user_id: current_user.id, hima_owner_id: hima_owner_id)
+    hima = Hima.find(params[:hima_id])
+    hima_owner_id = hima.user.id
+    open_range_id = hima.open_range_id
+    params.require(:hit_on).permit(:line).merge(hima_id: hima.id, user_id: current_user.id, hima_owner_id: hima_owner_id, this_hima: open_range_id)
   end
 end
