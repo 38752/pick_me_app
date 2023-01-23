@@ -8,6 +8,11 @@ class HimasController < ApplicationController
   def new
     @purposes = Purpose.all
     @hima_form = HimaForm.new
+
+    @inbisible_open_range_ids = []
+    for inbisible_open_range_id in 90..99 do
+      @inbisible_open_range_ids << inbisible_open_range_id
+    end
   end
 
   def create
