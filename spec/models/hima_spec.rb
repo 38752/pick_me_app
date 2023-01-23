@@ -9,11 +9,23 @@ RSpec.describe Hima, type: :model do
     context '投稿できる' do
       it '投稿できる' do
         expect(@hima).to be_valid
+
+        @hima.save
+        @purpose_list = build_purposes(@hima)
+        @purpose_list.each do |hima_purpose|
+          expect(hima_purpose).to be_valid
+        end
       end
 
       it 'locationが空でも投稿できる' do
         @hima.location = ''
         expect(@hima).to be_valid
+
+        @hima.save
+        @purpose_list = build_purposes(@hima)
+        @purpose_list.each do |hima_purpose|
+          expect(hima_purpose).to be_valid
+        end
       end
     end
 
@@ -36,5 +48,16 @@ RSpec.describe Hima, type: :model do
         check_error_messages(@hima, "User must exist")
       end
     end
+  end
+
+  private
+
+  def build_purposes(hima)
+    purpose_list = []
+    Purpose.all.each do |purpose|
+      purpose_list << FactoryBot.build(:hima_purpose, purpose_id: purpose.id, hima_id: hima.id)
+    end
+
+    return purpose_list
   end
 end
