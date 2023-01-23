@@ -1,6 +1,7 @@
 class HimasController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :hima_owner?, only: [:edit, :update]
+  before_action :hima_editable?, only: [:edit, :update]
   def index
     @visible_open_range_ids = []
     OpenRange.all.each do |open_range|
@@ -69,6 +70,12 @@ class HimasController < ApplicationController
   private
 
   def hima_owner?
+    # open_range_idの元データが10の時しか受け付けない(随時更新)
+    permitted_open_range_ids = [10]
+    redirect_to root_path unless permitted_open_range_ids.include?(Hima.find(params[:id]).open_range_id)
+  end
+
+  def hima_editable?
     redirect_to root_path if Hima.find(params[:id]).user != current_user
   end
 
