@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function(){
   showFormButtons.forEach(button =>{
     const commandMessageSpace = button.children[1];
     commandMessageSpace.innerHTML = `<u>リクエストを作成する</u>`;
+
+    // カーソルの形を変更
     commandMessageSpace.style.cursor = 'pointer';
 
     button.addEventListener('click', (e) => {

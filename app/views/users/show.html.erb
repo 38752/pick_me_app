@@ -19,8 +19,10 @@
         <%= image_tag("no_image.jpg", class: "profile-image") %>
       <% end %>
     </div>
-    <div><%= "年齢：#{@user.how_old.profile}" %></div>
-    <div><%= "性別：#{@user.sex.profile}" %></div>
+    <div class="profile-statuses">
+      <div class="profile-status"><%= "年齢：#{@user.how_old.profile}" %></div>
+      <div class="profile-status"><%= "性別：#{@user.sex.profile}" %></div>
+    </div>
   </div>
   <div>
     <div class="edit-button-line">

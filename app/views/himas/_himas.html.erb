@@ -17,13 +17,14 @@
     <% if hima.location != "" %>
       <%= "ロケーション：#{hima.location}" %>
     <% else %>
-    <%= "場所指定なし" %>
+      <%= "ロケーション：指定なし" %>
     <% end %>
   </div>
   <br>
   <div>
     <%= hima.text %>
   </div>
+  <br>
   <% if hima.hima_purposes.where(flag: 1).any? %>
     <div>
       <h5>タグ</h5>
