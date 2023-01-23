@@ -1,4 +1,4 @@
-<%= render partial: 'shared/page_title', locals: { title: "新規投稿" } %>
+<%= render partial: 'shared/page_title', locals: { title: "hima編集" } %>
 <%= form_with model: @hima_form, url: himas_path, class: "general-form-frame", local: true do |f| %>
   <%= render 'error_messages', model: @hima_form %>
   <div class="field">
@@ -36,6 +36,6 @@
   </div>
   <br>
   <div class="actions">
-    <%= f.submit "投稿する" %>
+    <%= f.submit "更新する" %>
   </div>
 <% end %>
