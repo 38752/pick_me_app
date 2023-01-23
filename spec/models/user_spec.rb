@@ -18,9 +18,9 @@ RSpec.describe User, type: :model do
         @user.nickname = ''
         check_error_messages(@user, "Nickname is too short (minimum is 1 character)")
       end
-      it 'nicknameが21字以上では登録できない' do
+      it 'nicknameが16字以上では登録できない' do
         @user.nickname = '123456789012345678901'
-        check_error_messages(@user, "Nickname is too long (maximum is 20 characters)")
+        check_error_messages(@user, "Nickname is too long (maximum is 15 characters)")
       end
 
       # email
@@ -93,9 +93,9 @@ RSpec.describe User, type: :model do
         @user.nickname = ''
         check_error_messages(@user, "Nickname is too short (minimum is 1 character)")
       end
-      it 'nicknameが21字以上では更新できない' do
-        @user.nickname = '123456789012345678901'
-        check_error_messages(@user, "Nickname is too long (maximum is 20 characters)")
+      it 'nicknameが16字以上では更新できない' do
+        @user.nickname = '1234567890123456'
+        check_error_messages(@user, "Nickname is too long (maximum is 15 characters)")
       end
 
       # images
