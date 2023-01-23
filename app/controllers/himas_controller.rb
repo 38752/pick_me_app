@@ -10,15 +10,20 @@ class HimasController < ApplicationController
     @purposes = Purpose.all
     @hima_form = HimaForm.new
 
-    @inbisible_open_range_ids = []
-    for inbisible_open_range_id in 90..99 do
-      @inbisible_open_range_ids << inbisible_open_range_id
+    @invisible_open_range_ids = []
+    for invisible_open_range_id in 90..99 do
+      @invisible_open_range_ids << invisible_open_range_id
     end
   end
 
   def create
+    # open_range_idは10しか受け付けない(随時更新)
+    permitted_open_range_ids = [10]
+    redirect_to root_path unless permitted_open_range_ids.include?(params[:hima_form][:open_range_id].to_i)
+
     @purposes = Purpose.all
     @hima_form = HimaForm.new(hima_form_params)
+
     if @hima_form.valid?
       @hima_form.save
       redirect_to root_path
@@ -29,18 +34,28 @@ class HimasController < ApplicationController
 
   def edit
     @purposes = Purpose.all
-    @hima_form = HimaForm.new(himaFormFind(params[:id]))
+    @hima_form = HimaForm.new(hima_form_find(params[:id]))
 
-    @inbisible_open_range_ids = []
-    for inbisible_open_range_id in 90..99 do
-      @inbisible_open_range_ids << inbisible_open_range_id
+    @invisible_open_range_ids = []
+    for invisible_open_range_id in 90..99 do
+      @invisible_open_range_ids << invisible_open_range_id
     end
-    @inbisible_open_range_ids.slice!(99)
+    @invisible_open_range_ids.delete(99)
   end
 
   def update
+    # open_range_idは10と99しか受け付けない(随時更新)
+    permitted_open_range_ids = [10, 99]
+    redirect_to root_path unless permitted_open_range_ids.include?(params[:hima_form][:open_range_id].to_i)
+
     @purposes = Purpose.all
-    @hima_form = HimaForm.new(himaFormFind(params[:id]))
+    @hima_form = HimaForm.new(hima_form_params.merge(hima_id: params[:id].to_i))
+    if @hima_form.valid?
+      @hima_form.update
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
@@ -63,13 +78,14 @@ class HimasController < ApplicationController
     ).merge(user_id: current_user.id, purposes: purposes_hash)
   end
 
-  def himaFormFind(id)
+  def hima_form_find(id)
     hima = Hima.find(id)
     return_hash = {}
 
     return_hash[:title] = hima.title
     return_hash[:location] = hima.location
     return_hash[:text] = hima.text
+    return_hash[:open_range_id] = hima.open_range_id
     hima.hima_purposes.all.each do |hima_purpose|
       return_hash[:"purpose_#{hima_purpose.purpose_id}"] = hima_purpose.flag
     end

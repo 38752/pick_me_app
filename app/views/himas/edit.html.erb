@@ -1,5 +1,5 @@
 <%= render partial: 'shared/page_title', locals: { title: "hima編集" } %>
-<%= form_with model: @hima_form, url: himas_path, class: "general-form-frame", local: true do |f| %>
+<%= form_with(model: @hima_form, url: hima_path, method: :patch, class: "general-form-frame", local: true) do |f| %>
   <%= render 'error_messages', model: @hima_form %>
   <div class="field">
    <%= f.label :title, "タイトル（必須）" %>
@@ -31,7 +31,7 @@
   <h4>公開範囲</h4>
   <div class="field">
     <div>
-      <%= f.collection_select :open_range_id, OpenRange.where.not(id: @inbisible_open_range_ids), :id, :name,{} ,{ class: 'select-box' } %>
+      <%= f.collection_select :open_range_id, OpenRange.where.not(id: @invisible_open_range_ids), :id, :name, { selected: @hima_form.open_range_id }, { class: 'select-box' } %>
     </div>
   </div>
   <br>
