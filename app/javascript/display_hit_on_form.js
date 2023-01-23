@@ -9,12 +9,14 @@ document.addEventListener('DOMContentLoaded', function(){
   // それぞれのボタンにクリックされた際のイベントを仕込む
   showFormButtons.forEach(button =>{
     const commandMessageSpace = button.children[1];
-    commandMessageSpace.innerHTML = '<u>リクエストを作成する</u>';
+    commandMessageSpace.innerHTML = `<u>リクエストを作成する</u>`;
+    commandMessageSpace.style.cursor = 'pointer';
+
     button.addEventListener('click', (e) => {
       const form = button.parentElement.nextElementSibling.children[0];
       if (form.getAttribute("style") == "display: block;") {
         form.setAttribute("style", "display: none;");
-        commandMessageSpace.innerHTML= '<u>リクエストを作成する</u>';
+        commandMessageSpace.innerHTML= `<u>リクエストを作成する</u>`;
       } else {
         form.setAttribute("style", "display: block;");
         commandMessageSpace.innerHTML = 'フォームを閉じる';
