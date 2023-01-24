@@ -12,13 +12,16 @@
   <div>
     <%= hima.text %>
   </div>
-  <div>
-    <h5>タグ</h5>
-    <ul class="purpose-list">
-      <% hima.hima_purposes.each do |purpose| %>
-        <% if purpose.flag == 1 %>
-          <li><%= purpose.purpose.name %></li>
+  <br>
+  <%# purposes出力 %>
+  <% output_purposes = hima.hima_purposes.where(purpose_id: Purpose.ids, flag: 1) %>
+  <% if output_purposes.any? %>
+    <div>
+      <h5>タグ</h5>
+      <ul class="purpose-list">
+        <% output_purposes.each do |hima_purpose| %>
+          <li><%= hima_purpose.purpose.name %></li>
         <% end %>
-      <% end %>
-    </ul>
-  </div>
+      </ul>
+    </div>
+  <% end %>

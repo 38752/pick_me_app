@@ -101,7 +101,7 @@ class HimasController < ApplicationController
     return_hash[:location] = hima.location
     return_hash[:text] = hima.text
     return_hash[:open_range_id] = hima.open_range_id
-    hima.hima_purposes.all.each do |hima_purpose|
+    hima.hima_purposes.where(purpose_id: Purpose.ids).each do |hima_purpose|
       return_hash[:"purpose_#{hima_purpose.purpose_id}"] = hima_purpose.flag
     end
     return return_hash

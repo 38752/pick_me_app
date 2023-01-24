@@ -25,14 +25,14 @@
     <%= hima.text %>
   </div>
   <br>
-  <% if hima.hima_purposes.where(flag: 1).any? %>
+  <%# purposes出力 %>
+  <% output_purposes = hima.hima_purposes.where(purpose_id: Purpose.ids, flag: 1) %>
+  <% if output_purposes.any? %>
     <div>
       <h5>タグ</h5>
       <ul class="purpose-list">
-        <% hima.hima_purposes.each do |purpose| %>
-          <% if purpose.flag == 1 %>
-            <li><%= purpose.purpose.name %></li>
-          <% end %>
+        <% output_purposes.each do |hima_purpose| %>
+          <li><%= hima_purpose.purpose.name %></li>
         <% end %>
       </ul>
     </div>
@@ -75,7 +75,7 @@
           <span >
             あなたの投稿です
           </span>
-          <%= link_to '編集・公開停止', edit_hima_path(hima), class: "edit-button btn btn-secondary" %>
+          <%= link_to '編集・公開停止', edit_hima_path(hima), class: "edit-button-sm btn btn-secondary" %>
         </div>
       <% end %>
     <% else %>
