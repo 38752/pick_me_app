@@ -213,6 +213,12 @@ h4 {
   margin-bottom: 8px;
   font-size: 14px;
 }
+.edit-button-sm {
+  padding: 2.4px 3.6px;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  font-size: 11px;
+}
 
 .upper-profile {
   display: flex;
