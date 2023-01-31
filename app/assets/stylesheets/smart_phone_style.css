@@ -1,0 +1,219 @@
+/* スマホ表示時 */
+@media (max-width: 599px) {
+  .pillow {
+    height: 45px;
+  }
+  /*
+  
+  h3 {
+    display: inline;
+  }
+  
+  h4 {
+    display: inline;
+  }
+   */
+  /* ▼ヘッダー */
+  .header {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid #D8D8D8;
+    background-color: #fefefe;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 24px;
+  }
+  .phone-hidden {
+    display: none;
+  }
+  .header-menu-string{
+    margin-top: 25px;
+    margin-right: 10px;
+  }
+  .header-menu-image {
+    margin-top: 3px;
+  }
+  .menu-button {
+    height: 48px;
+  }
+  /* ▲ヘッダー */
+
+  /* ▼フッター */
+  /* ▲フッター */
+
+  /* ▼ページタイトル */
+  .page-title-main {
+    margin-bottom: 10px;
+  }
+  .page-title-container {
+    max-width: 90vw;
+    padding: 3px 6px;
+    margin: auto;
+    text-align: center;
+    border-bottom: 1.5px solid black;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+  }
+  /* ▲ページタイトル */
+
+  /* ▲フォーム関連 */
+  .general-form-frame {
+    width: 40vw;
+    margin: auto;
+    padding: 10px;
+    background-color: antiquewhite;
+  }
+  .new_user {
+    width: 40vw;
+    margin: auto;
+    padding: 10px;
+    background-color: antiquewhite;
+  }
+
+  .hit_on-text_area {
+    height: 64px;
+  }
+
+  .thirty-vw-form {
+    min-width: 30vw;
+    max-width: 30vw;
+  }
+  .select-box {
+    margin: 10px 20px;
+  }
+  .caution {
+    font-size: 12px;
+  }
+
+  /* ▲フォーム関連 */
+
+  /* ▼ボタン */
+  .edit-button-sm {
+    padding: 4px 4.8px;
+    margin-left: 10px;
+    margin-bottom: 2px;
+    font-size: 15px;
+  }
+  .hit_on-submit_button {
+    margin-top: 8px;
+    margin-left: 10px;
+    padding: 4px 8px;
+  }
+  /* ▲ボタン */
+
+
+  /* ▼表示できないメッセージのspan要素 */
+  .cannnot-show {
+    text-align: center;
+    font-size: 24px;
+    line-height: 36px;
+    color: #777;
+  }
+  /* ▲表示できないメッセージのspan要素 */
+
+  /* ▼アイコン(丸で切り取られた画像)関連 */
+  .icon-image {
+    background-color: #fafafa;
+    /* 画像の表示形式を指定するプロパティ */
+    object-fit: cover;
+
+    border: 1px solid black;
+    border-radius: 50%;
+  }
+  .hima-icon-image {
+    height: 45px;
+    width: 45px;
+  }
+  .room-icon-image {
+    height: 100px;
+    width: 100px;
+  }
+  .message-icon-image {
+    height: 50px;
+    width: 50px;
+  }
+  /* ▲アイコン(丸で切り取られた画像)関連 */
+
+  /* --------------------------------- */
+  /* ▼/himas/index */
+  .himas-main {
+    width: 95vw;
+    padding: 15px 15px 5px;
+    background-color: cornsilk;
+    margin: 0 auto;
+  }
+  .hima-user-name {
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    font-size: 14px;
+  }
+
+  .hit_on-status {
+    /* line-height: 22px; */
+    font-size: 18px;
+  }
+  .hit_on-hand {
+    height: 22px;
+  }
+
+  /* ▲/himas/index */
+
+  /* ▼/himas/new */
+
+  /* ▲/himas/new */
+
+  /* ▼/users/:id */
+
+  /* ▲/users/:id */
+
+
+  /* ▼/users/:id/edit */
+
+  /* ▲/users/:id/edit */
+
+  /* ▼/users/sign_up */
+
+  /* ▲/users/sign_up */
+
+
+  /* ▼hit_on-form */
+
+  /* ▲hit_on-form */
+
+
+  /* ▼/rooms */
+
+  /* ▲/rooms */
+
+
+  /* ▼/rooms/:room_id/messages */
+
+  /* メッセージに表示するファーストコンタクト */
+
+  /* メッセージに表示するメッセージ */
+
+  /* メッセージに表示するcreated_at */
+
+  /* 「受け取りました！」通知 */
+
+  /* メッセージのフォームここから */
+
+  /* ▲/rooms/:room_id/messages */
+
+
+  /* ▼/hit_ons */
+
+  /* ▲/hit_ons */
+
+}
