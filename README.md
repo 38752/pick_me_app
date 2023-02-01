@@ -72,7 +72,7 @@ PASS：1947
 
 - LINEやDM(自分から声をかける場合)
   - 一人一人に送らなければならない
-  - ダブルブッキングしてしまうことがある
+  - 複数人に声をかけていた場合、ダブルブッキングしてしまうことがある
 
 - 出会い系サービス
   - 「出会う」ことが主な目的のため、それ以外の目的(メッセージで話したいだけ等)には向かない
@@ -101,6 +101,12 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
 - 「hima」を投稿することができる
 ![「hima」投稿](https://gyazo.com/b36d8ef0af66c8fbca4f0b923d66263c/raw)
 
+- 自身の「hima」を編集することができる
+![「hima」編集](https://gyazo.com/8ee73fee04a44a84eb3c972c2fda1834/raw)
+
+- 自身の「hima」を削除(公開停止)することができる
+![「hima」公開停止](https://gyazo.com/3d8283abe258c6b0ff63291a976d76d6/raw)
+
 - 投稿された「hima」にリクエストを送ることができる
 ![リクエスト送信](https://gyazo.com/0f3ac42c47a0992da9fd61633b9b852e/raw)
 
@@ -122,12 +128,12 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
 - トークルームをクローズすることができる
 ![ルームクローズ](https://gyazo.com/0020f86f7733aef817128fc5ddba11ac/raw)
 
+
 # 実装予定の機能
 - テストの実施
 - Bootstrapを用いたレイアウト・UIの向上
-- 自身のhimaの削除機能
-- 自身のhimaの公開範囲指定機能
 - フォロー機能(relationships テーブルの処理)の充実
+- 自身のhimaの公開範囲指定機能
 - himaのソート機能
 - 既存の知り合いの追加機能
 - コンスタントルーム(クローズ不可のトークルーム)でのトーク機能
@@ -278,7 +284,7 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
 
 
 # 画面遷移図
-![画面遷移図](https://gyazo.com/f86ead538299fb09d0b103d3e6f21c81/raw)
+![画面遷移図](https://gyazo.com/c195bddb9e31a5014bde4b6af57d1fd6/raw)
 
 # 開発環境
 - フレームワーク
