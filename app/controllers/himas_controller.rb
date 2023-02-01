@@ -26,9 +26,9 @@ class HimasController < ApplicationController
   end
 
   def create
-    # open_range_idは10しか受け付けない(随時更新)
-    permitted_open_range_ids = [10]
-    redirect_to root_path unless permitted_open_range_ids.include?(params[:hima_form][:open_range_id].to_i)
+    # paramsのopen_range_idは10しか受け付けない(随時更新)
+    permitted_params_open_range_ids = [10]
+    redirect_to root_path unless permitted_params_open_range_ids.include?(params[:hima_form][:open_range_id].to_i)
 
     @purposes = Purpose.all
     @hima_form = HimaForm.new(hima_form_params)
@@ -53,9 +53,9 @@ class HimasController < ApplicationController
   end
 
   def update
-    # open_range_idは10と99しか受け付けない(随時更新)
-    permitted_open_range_ids = [10, 99]
-    redirect_to root_path unless permitted_open_range_ids.include?(params[:hima_form][:open_range_id].to_i)
+    # paramsのopen_range_idは10と99しか受け付けない(随時更新)
+    permitted_params_open_range_ids = [10, 99]
+    redirect_to root_path unless permitted_params_open_range_ids.include?(params[:hima_form][:open_range_id].to_i)
 
     @purposes = Purpose.all
     @hima_form = HimaForm.new(hima_form_params.merge(hima_id: params[:id].to_i))
@@ -70,13 +70,13 @@ class HimasController < ApplicationController
   private
 
   def hima_owner?
-    # open_range_idの元データが10の時しか受け付けない(随時更新)
-    permitted_open_range_ids = [10]
-    redirect_to root_path unless permitted_open_range_ids.include?(Hima.find(params[:id]).open_range_id)
+    redirect_to root_path if Hima.find(params[:id]).user != current_user
   end
 
   def hima_editable?
-    redirect_to root_path if Hima.find(params[:id]).user != current_user
+    # open_range_idの元データが10の時しか受け付けない(随時更新)
+    permitted_hima_open_range_ids = [10]
+    redirect_to root_path unless permitted_hima_open_range_ids.include?(Hima.find(params[:id]).open_range_id)
   end
 
   def hima_form_params
@@ -106,6 +106,4 @@ class HimasController < ApplicationController
     end
     return return_hash
   end
-
-
 end
