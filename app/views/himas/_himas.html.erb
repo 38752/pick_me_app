@@ -56,7 +56,7 @@
                 </div>
               </div>
               <div class="actions">
-                <%= f.submit "送信" %>
+                <%= f.submit "送信", class: "hit_on-submit_button" %>
               </div>
             <% end %>
           </div>
@@ -72,7 +72,7 @@
         <% end %>
       <% else %>
         <div>
-          <span >
+          <span class="hit_on-status">
             あなたの投稿です
           </span>
           <%= link_to '編集・公開停止', edit_hima_path(hima), class: "edit-button-sm btn btn-secondary" %>

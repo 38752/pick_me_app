@@ -1,3 +1,6 @@
+body * {
+  word-break: break-all;
+}
 .pillow {
   height: 54px;
 }
@@ -58,6 +61,9 @@ h4 {
 }
 .more-menu-string {
   margin-bottom: 10px;
+}
+.phone-visible {
+  display: none;
 }
 
 .mouseover-weightier {

@@ -24,6 +24,8 @@
     <% @purposes.each_with_index do |purpose, i| %>
       <div class="field">
         <%= f.check_box :"purpose_#{purpose.id}" %>
+        <%# ↓に変更することでparamsの処理が大幅に軽減されるが、render時にうまく反映されない %>
+        <%#= f.check_box :"purpose_#{purpose.id}", name: "hima_form[purposes][purpose_#{purpose.id}]" %>
         <%= f.label :"purpose_#{purpose.id}", "#{purpose.name}" %>
         <br>
       </div>
