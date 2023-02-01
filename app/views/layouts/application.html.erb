@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
 
     <%# レスポンシブWebデザイン %><%# -599-1024- %>
@@ -30,6 +30,7 @@
           </ul>
           <ul class="more-user__info" id="pull-down">
             <li class="more-menu-string"><%= link_to "マイページ", user_path(current_user), class: "mouseover-weightier"%></li>
+            <li class="more-menu-string phone-visible"><%= link_to "新規投稿", new_hima_path, class: "mouseover-weightier" %></li>
             <li class="more-menu-string"><%= link_to "トークルーム一覧", rooms_path, class: "mouseover-weightier" %></li>
             <li class="more-menu-string"><%= link_to "リクエスト中", hit_ons_path, class: "mouseover-weightier" %></li>
             <li class="more-menu-string"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "mouseover-weightier" %></li>
