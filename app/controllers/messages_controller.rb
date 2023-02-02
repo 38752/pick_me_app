@@ -3,12 +3,18 @@ class MessagesController < ApplicationController
   before_action :room_participant?
   before_action :set_extras
   def index
+    @individual_activities = IndividualActivity.where(room_id: @room.id, object_id: current_user.id)
+    @individual_activities.each do |individual_activity|
+      individual_activity.update(read: true)
+    end
     @message = Message.new
   end
 
   def create
     @message = @room.messages.new(message_params)
-    @message.save
+    if @message.save
+      IndividualActivity.create(room_id: @room.id, object_id: @object.id, category: 'message')
+    end
     redirect_to room_messages_path(@room)
   end
 

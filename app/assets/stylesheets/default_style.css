@@ -360,6 +360,22 @@ h4 {
   margin-bottom: 20px;
 }
 
+.left-room-unit {
+  position: relative;
+}
+.activity-batch {
+  position: absolute;
+  top: 75px;
+  left: 75px;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+  text-align: center;
+  color: white;
+  background-color: #ee4400;
+}
+
 .right-room-unit {
   width: 60vw;
 }
