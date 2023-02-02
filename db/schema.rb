@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_17_065334) do
+ActiveRecord::Schema.define(version: 2023_02_02_080419) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -62,6 +62,16 @@ ActiveRecord::Schema.define(version: 2023_01_17_065334) do
     t.index ["hima_id"], name: "index_hit_ons_on_hima_id"
     t.index ["user_id", "hima_id"], name: "index_hit_ons_on_user_id_and_hima_id", unique: true
     t.index ["user_id"], name: "index_hit_ons_on_user_id"
+  end
+
+  create_table "individual_activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.integer "object_id", null: false
+    t.string "category", null: false
+    t.boolean "read", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_individual_activities_on_room_id"
   end
 
   create_table "memos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -132,6 +142,7 @@ ActiveRecord::Schema.define(version: 2023_01_17_065334) do
   add_foreign_key "himas", "users"
   add_foreign_key "hit_ons", "himas"
   add_foreign_key "hit_ons", "users"
+  add_foreign_key "individual_activities", "rooms"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "room_users", "rooms"

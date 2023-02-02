@@ -6,6 +6,11 @@
     <% else %>
       <span><%= link_to image_tag('new_user_icon.png', class: "icon-image room-icon-image"), user_path(object), target: "_blank", rel: "noreferrer noopener" %></span>
     <% end %>
+    <% individual_activity = IndividualActivity.find_by(room_id: room.id, object_id: current_user.id, read: false) %>
+    <% if individual_activity.present? %>
+      <span class="activity-batch">M
+      </span>
+    <% end %>
   </div>
   <div class="right-room-unit">
     <div class="rooms-unit-nickname-and-updated_at">
