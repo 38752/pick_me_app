@@ -19,11 +19,8 @@
     justify-content: space-between;
   }
   .header-menu-string{
-    margin-top: 25px;
+    margin-top: 20px;
     margin-right: 10px;
-  }
-  .header-menu-image {
-    margin-top: 5px;
   }
   /* ▲ヘッダー */
 
@@ -35,13 +32,13 @@
 
   /* ▲フォーム関連 */
   .general-form-frame {
-    width: 40vw;
+    width: 60vw;
     margin: auto;
     padding: 10px;
     background-color: antiquewhite;
   }
   .new_user {
-    width: 40vw;
+    width: 60vw;
     margin: auto;
     padding: 10px;
     background-color: antiquewhite;

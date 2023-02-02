@@ -103,7 +103,7 @@ h4 {
 }
 /* ▲ページタイトル */
 
-/* ▲フォーム関連 */
+/* ▼フォーム関連 */
 .general-form-frame {
   width: 40vw;
   margin: auto;
@@ -121,8 +121,17 @@ h4 {
   min-width: 30vw;
   max-width: 30vw;
 }
+
+.field {
+  margin-bottom: 10px;
+}
 .select-box {
   margin: 10px 20px;
+}
+.btn-primary {
+  margin-left: 2%;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 .caution {
   font-size: 12px;
