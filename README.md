@@ -136,6 +136,7 @@ https://docs.google.com/spreadsheets/d/1Doi1Cv1n-u28gp4kk_gJvH-w7Ce61l-qspNHviu7
 
 
 # 実装予定の機能
+- 通知機能
 - テストの実施
 - Bootstrapを用いたレイアウト・UIの向上
 - フォロー機能(relationships テーブルの処理)の充実
