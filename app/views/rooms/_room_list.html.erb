@@ -8,8 +8,7 @@
     <% end %>
     <% individual_activity = IndividualActivity.find_by(room_id: room.id, object_id: current_user.id, read: false) %>
     <% if individual_activity.present? %>
-      <span class="activity-batch">M
-      </span>
+      <span class="activity-batch">N</span>
     <% end %>
   </div>
   <div class="right-room-unit">
@@ -19,9 +18,9 @@
     </div>
     <div class="message-room-unit">
       <% if room.messages.any? %>
-        <%= link_to room.messages.last.content, room_messages_path(room), class: "current-message", target: "_blank", rel: "noreferrer noopener" %>
+        <%= link_to room.messages.last.content, room_messages_path(room), class: "current-message" %>
       <% else %>
-        <%= link_to room.hit_on.line, room_messages_path(room), class: "current-message", target: "_blank", rel: "noreferrer noopener" %>
+        <%= link_to room.hit_on.line, room_messages_path(room), class: "current-message" %>
       <% end %>
     </div>
   </div>

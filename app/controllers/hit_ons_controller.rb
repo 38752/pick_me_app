@@ -23,6 +23,7 @@ class HitOnsController < ApplicationController
         relationship.update(relationship_index_id: 1000)
       end
       room = Room.create(hit_on_id: hit_on.id, room_master_id: hit_on.hima_owner_id, user_ids: [hit_on.user_id, hit_on.hima_owner_id])
+      IndividualActivity.create(room_id: room.id, object_id: room.room_master.id, category: 'requested')
     else
       hit_on_and_errors[:errors] = hit_on.errors.full_messages
     end

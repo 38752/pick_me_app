@@ -11,6 +11,8 @@ class RoomsController < ApplicationController
 
   def accept
     @room.update(room_status_index_id: 20)
+    object = @room.users.find_by("user_id != ?", current_user.id)
+    IndividualActivity.create(room_id: @room.id, object_id: object.id, category: 'accepted')
     redirect_to room_messages_path(@room)
   end
 
