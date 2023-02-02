@@ -15,6 +15,7 @@ require('../close_room.js')
 require('../show_more_menu.js')
 require('../text_weighter.js')
 require('../keep_category_black.js')
+require('../remove_individual_activity_batch.js')
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

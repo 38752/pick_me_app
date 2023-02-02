@@ -8,19 +8,19 @@
     <% end %>
     <% individual_activity = IndividualActivity.find_by(room_id: room.id, object_id: current_user.id, read: false) %>
     <% if individual_activity.present? %>
-      <span class="activity-batch">N</span>
+      <span class="individual-activity-batch" id="individual-activity-batch_<%= room.id %>">N</span>
     <% end %>
   </div>
   <div class="right-room-unit">
     <div class="rooms-unit-nickname-and-updated_at">
-      <span class="nickname-room-unit"><%= link_to object.nickname, user_path(object), target: "_blank", rel: "noreferrer noopener"  %></span>
+      <span class="nickname-room-unit"><%= link_to object.nickname, user_path(object), target: "_blank", rel: "noreferrer noopener" %></span>
       <span class="updated_at-room-unit"><%= l room.updated_at, format: :short  %></span>
     </div>
     <div class="message-room-unit">
       <% if room.messages.any? %>
-        <%= link_to room.messages.last.content, room_messages_path(room), class: "current-message" %>
+        <%= link_to room.messages.last.content, room_messages_path(room), class: "current-message", data: {room_id: room.id}, target: "_blank", rel: "noreferrer noopener" %>
       <% else %>
-        <%= link_to room.hit_on.line, room_messages_path(room), class: "current-message" %>
+        <%= link_to room.hit_on.line, room_messages_path(room), class: "current-message", data: {room_id: room.id}, target: "_blank", rel: "noreferrer noopener" %>
       <% end %>
     </div>
   </div>
